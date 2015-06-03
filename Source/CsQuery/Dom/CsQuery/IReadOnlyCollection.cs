@@ -4,7 +4,7 @@ using System.Collections;
 
 using System.Text;
 
-namespace CsQuery.Implementation
+namespace CsQuery
 {
     /// <summary>
     /// Interface for read only collection.
@@ -20,6 +20,6 @@ namespace CsQuery.Implementation
         /// Gets the number of items in the collection. 
         /// </summary>
 
-        int Count {get;}
+        int Count { get; }
     }
 }

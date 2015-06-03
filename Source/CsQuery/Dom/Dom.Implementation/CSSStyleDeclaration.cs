@@ -610,7 +610,7 @@ namespace CsQuery.Implementation
         public void SetStyle(string name, string value, bool strict)
         {
             
-            name = Utility.Support.FromCamelCase(name);
+            name = Utility.Support3.FromCamelCase(name);
             if (value == null)
             {
                 Remove(name);

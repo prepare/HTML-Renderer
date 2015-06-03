@@ -72,7 +72,7 @@ namespace CsQuery.Implementation
             }
             set
             {
-                SetAttribute("rel", Support.EnumToAttribute(value));
+                SetAttribute("rel", Support3.EnumToAttribute(value));
             }
         }
 

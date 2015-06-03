@@ -30,7 +30,7 @@ namespace CsQuery.Implementation
         {
             get
             {
-                return Support.IntOrZero(GetAttribute(HtmlData.ValueAttrId));
+                return Support3.IntOrZero(GetAttribute(HtmlData.ValueAttrId));
             }
             set
             {
