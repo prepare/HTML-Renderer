@@ -35,8 +35,8 @@ namespace CsQuery.Tests
             }
             set
             {
-                _SolutionDirectory = Support.CleanFilePath(value);
-                TestProjectDirectory = Support.CleanFilePath(_SolutionDirectory+"CsQuery.Tests/");
+                _SolutionDirectory = Support2.CleanFilePath(value);
+                TestProjectDirectory = Support2.CleanFilePath(_SolutionDirectory+"CsQuery.Tests/");
             }
         }
         /// <summary>

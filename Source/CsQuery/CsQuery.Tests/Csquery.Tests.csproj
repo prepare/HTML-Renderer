@@ -134,6 +134,8 @@
     <Compile Include="WebQuery\Web\AsyncPostbackData.cs" />
     <Compile Include="WebQuery\Web\AsyncWebRequest.cs" />
     <Compile Include="WebQuery\Web\AsyncWebRequestManager.cs" />
+    <Compile Include="WebQuery\Web\Config3.cs" />
+    <Compile Include="WebQuery\Web\CreateFromUrl.cs" />
     <Compile Include="WebQuery\Web\CsQueryHttpContext.cs" />
     <Compile Include="WebQuery\Web\CsqWebRequest.cs" />
     <Compile Include="WebQuery\Web\enumRequestState.cs" />

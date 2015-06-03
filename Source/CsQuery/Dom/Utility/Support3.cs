@@ -15,7 +15,7 @@ namespace CsQuery.Utility
     /// <summary>
     /// Some static methods that didn't fit in anywhere else. 
     /// </summary>
-    static class Support3
+    public static class Support3
     {
         /// <summary>
         ///  Gets a resource from the calling assembly

@@ -6,7 +6,7 @@ using System.Text;
 using System.Dynamic;
 using System.IO;
 using System.Web;
-using System.Web.Script.Serialization;
+//using System.Web.Script.Serialization;
 
 using CsQuery.ExtensionMethods.Internal;
 using CsQuery.Utility;
@@ -15,10 +15,11 @@ using CsQuery.Engine;
 using CsQuery.Promises;
 using CsQuery.HtmlParser;
 using CsQuery.Implementation;
+using CsQuery.Web;
 
 namespace CsQuery
 {
-    public partial class CQ
+    public class CQ2
     {
         ///// <summary>
         ///// Creates a new DOM from an HTML file.
@@ -35,17 +36,17 @@ namespace CsQuery
         ///// A CQ object composed from the HTML response from the server.
         ///// </returns>
 
-        //public static CQ CreateFromUrl(string url, ServerConfig options=null)
-        //{
-            
-        //    CsqWebRequest request = new CsqWebRequest(url);
-        //    request.Options = options;  
-        //    var httpRequest = request.GetWebRequest();
-        //    var response = httpRequest.GetResponse();
-        //    var responseStream = response.GetResponseStream();
-        //    var encoding = CsqWebRequest.GetEncoding(response); 
-        //    return CQ.CreateDocument(responseStream,encoding);
-        //}
+        public static CQ CreateFromUrl(string url, ServerConfig options = null)
+        {
+
+            CsqWebRequest request = new CsqWebRequest(url);
+            request.Options = options;
+            var httpRequest = request.GetWebRequest();
+            var response = httpRequest.GetResponse();
+            var responseStream = response.GetResponseStream();
+            var encoding = CsqWebRequest.GetEncoding(response);
+            return CQ.CreateDocument(responseStream, encoding);
+        }
 
         ///// <summary>
         ///// Start an asynchronous request to an HTTP server, returning a promise that will resolve when
@@ -63,12 +64,12 @@ namespace CsQuery
         ///// A promise that resolves when the request completes
         ///// </returns>
 
-        //public static IPromise<ICsqWebResponse> CreateFromUrlAsync(string url, ServerConfig options = null)
-        //{
-        //    var deferred = When.Deferred<ICsqWebResponse>();
-        //    int uniqueID = AsyncWebRequestManager.StartAsyncWebRequest(url, deferred.Resolve, deferred.Reject, options);
-        //    return deferred;
-        //}
+        public static IPromise<ICsqWebResponse> CreateFromUrlAsync(string url, ServerConfig options = null)
+        {
+            var deferred = When.Deferred<ICsqWebResponse>();
+            int uniqueID = AsyncWebRequestManager.StartAsyncWebRequest(url, deferred.Resolve, deferred.Reject, options);
+            return deferred;
+        }
 
         ///// <summary>
         ///// Start an asynchronous request to an HTTP server.
@@ -92,11 +93,11 @@ namespace CsQuery
         ///// a response with this request.
         ///// </returns>
 
-        //public static int CreateFromUrlAsync(string url, Action<ICsqWebResponse> callbackSuccess, Action<ICsqWebResponse> callbackFail=null, ServerConfig options = null)
-        //{
-        //    return AsyncWebRequestManager.StartAsyncWebRequest(url,callbackSuccess,callbackFail,options); 
-            
-        //}
+        public static int CreateFromUrlAsync(string url, Action<ICsqWebResponse> callbackSuccess, Action<ICsqWebResponse> callbackFail = null, ServerConfig options = null)
+        {
+            return AsyncWebRequestManager.StartAsyncWebRequest(url, callbackSuccess, callbackFail, options);
+
+        }
 
 
         /// <summary>
@@ -119,11 +120,11 @@ namespace CsQuery
         /// Options to use when creating the request.
         /// </param>
 
-        //public static void CreateFromUrlAsync(string url, int id, Action<ICsqWebResponse> callbackSuccess, Action<ICsqWebResponse> callbackFail = null, ServerConfig options = null)
-        //{
-        //    AsyncWebRequestManager.StartAsyncWebRequest(url, callbackSuccess, callbackFail,id, options);
+        public static void CreateFromUrlAsync(string url, int id, Action<ICsqWebResponse> callbackSuccess, Action<ICsqWebResponse> callbackFail = null, ServerConfig options = null)
+        {
+            AsyncWebRequestManager.StartAsyncWebRequest(url, callbackSuccess, callbackFail, id, options);
 
-        //}
+        }
 
         /// <summary>
         /// Waits until all async events have completed. Use for testing primarily as a web app should
@@ -138,10 +139,10 @@ namespace CsQuery
         /// true if all events were cleared in the allotted time, false if not.
         /// </returns>
 
-        //public static bool WaitForAsyncEvents(int timeout = -1)
-        //{
-        //    return AsyncWebRequestManager.WaitForAsyncEvents(timeout);
-        //}
+        public static bool WaitForAsyncEvents(int timeout = -1)
+        {
+            return AsyncWebRequestManager.WaitForAsyncEvents(timeout);
+        }
 
         /// <summary>
         /// Return a new promise that resolves when all the promises passed in are resolved.

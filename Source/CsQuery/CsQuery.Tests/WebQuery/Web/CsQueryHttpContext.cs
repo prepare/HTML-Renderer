@@ -181,7 +181,7 @@ namespace CsQuery.Web
 
         public void Render()
         {
-            Render(DomRenderingOptions.Default);  
+            Render(DomRenderingOptions.Default);
         }
 
         /// <summary>
@@ -216,71 +216,72 @@ namespace CsQuery.Web
         /// <summary>
         /// Create a context from the bound method information
         /// </summary>
-        
+
         public void Create()
         {
-            ControlRenderMethod(Writer);
+            throw new MyNotImplementException();
+            //ControlRenderMethod(Writer);
 
-            ScriptManager mgr = ScriptManager.GetCurrent(Page);
+            //ScriptManager mgr = ScriptManager.GetCurrent(Page);
 
-            // Asp.Net async postbacks structure data like:
-            // "Len | Type | ID | Content" is the format of each asp.net postback
-            // Len must match length of Content or it chokes. 
+            //// Asp.Net async postbacks structure data like:
+            //// "Len | Type | ID | Content" is the format of each asp.net postback
+            //// Len must match length of Content or it chokes. 
 
-            if (mgr != null && mgr.IsInAsyncPostBack)
-            {
-                _AsyncPostbackData = new List<AsyncPostbackData>();
-                string input = _sb.ToString();
-                int inputLength = input.Length;
-                string id = String.Empty;
-                string type = String.Empty;
-                int length = 0;
+            //if (mgr != null && mgr.IsInAsyncPostBack)
+            //{
+            //    _AsyncPostbackData = new List<AsyncPostbackData>();
+            //    string input = _sb.ToString();
+            //    int inputLength = input.Length;
+            //    string id = String.Empty;
+            //    string type = String.Empty;
+            //    int length = 0;
 
-                int pos = 0;
-                int step = 1;
-                while (pos < inputLength)
-                {
-                    if (step < 4)
-                    {
-                        int nextPos = input.IndexOf('|', pos);
-                        if (nextPos > inputLength)
-                        {
-                            throw new InvalidOperationException("Unable to parse UpdatePanel data");
-                        }
-                        string data = input.SubstringBetween(pos, nextPos);
-                        switch (step)
-                        {
-                            case 1:
-                                length = Convert.ToInt32(data);
-                                break;
-                            case 2:
-                                type = data;
-                                break;
-                            case 3:
-                                id = data;
-                                break;
-                        }
-                        step++;
-                        pos = nextPos + 1;
-                    }
-                    else
-                    {
-                        AsyncPostbackData postData = new AsyncPostbackData();
-                        postData.Create(length, type, id, input.Substring(pos, length));
-                        pos += length + 1;
-                        step = 1;
-                        _AsyncPostbackData.Add(postData);
-                    }
-                }
-            }
-            else
-            {
-                Dom = CQ.CreateDocument(_sb.ToString());
-            }
+            //    int pos = 0;
+            //    int step = 1;
+            //    while (pos < inputLength)
+            //    {
+            //        if (step < 4)
+            //        {
+            //            int nextPos = input.IndexOf('|', pos);
+            //            if (nextPos > inputLength)
+            //            {
+            //                throw new InvalidOperationException("Unable to parse UpdatePanel data");
+            //            }
+            //            string data = input.SubstringBetween(pos, nextPos);
+            //            switch (step)
+            //            {
+            //                case 1:
+            //                    length = Convert.ToInt32(data);
+            //                    break;
+            //                case 2:
+            //                    type = data;
+            //                    break;
+            //                case 3:
+            //                    id = data;
+            //                    break;
+            //            }
+            //            step++;
+            //            pos = nextPos + 1;
+            //        }
+            //        else
+            //        {
+            //            AsyncPostbackData postData = new AsyncPostbackData();
+            //            postData.Create(length, type, id, input.Substring(pos, length));
+            //            pos += length + 1;
+            //            step = 1;
+            //            _AsyncPostbackData.Add(postData);
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    Dom = CQ.CreateDocument(_sb.ToString());
+            //}
         }
 
         #endregion
 
-      
+
     }
 }

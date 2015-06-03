@@ -39,7 +39,7 @@ namespace CsQuery.Tests.Core.WebIO
 
             while (urls.Count < howMany)
             {
-                var randomPage = CQ.CreateFromUrl("http://www.uroulette.com/");
+                var randomPage = CQ2.CreateFromUrl("http://www.uroulette.com/");
                 var links = randomPage["blockquote a"];
                 foreach (var item in links)
                 {

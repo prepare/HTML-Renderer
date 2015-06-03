@@ -44,7 +44,6 @@
     <Compile Include="CQ.cs" />
     <Compile Include="CQ_CsQuery\AttrReplace.cs" />
     <Compile Include="CQ_CsQuery\Create.cs" />
-    <Compile Include="CQ_CsQuery\CreateFromUrl.cs" />
     <Compile Include="CQ_CsQuery\EnsureCsQuery.cs" />
     <Compile Include="CQ_CsQuery\FirstElement.cs" />
     <Compile Include="CQ_CsQuery\GetTableColumn.cs" />

@@ -31,7 +31,7 @@ namespace CsQuery.Web
         public CsqWebRequest(string url)
         {
             Url = url;
-            WebRequestFactory = Config2.WebRequestFactory;
+            WebRequestFactory = Config3.WebRequestFactory;
         }
 
         /// <summary>

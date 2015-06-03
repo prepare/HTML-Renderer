@@ -35,7 +35,7 @@ namespace CsQuery.Tests.Core.WebIO
         {
             var url = "http://www.pixnet.net";
 
-            Dom = CQ.CreateFromUrl(url);
+            Dom = CQ2.CreateFromUrl(url);
 
             Assert.IsTrue(Dom.Document != null, "Dom was created");
             var csq = Dom.Find("title:contains('痞客邦 PIXNET')");
@@ -47,7 +47,7 @@ namespace CsQuery.Tests.Core.WebIO
         {
             var url = urls[0];
 
-            Dom = CQ.CreateFromUrl(url.Key);
+            Dom = CQ2.CreateFromUrl(url.Key);
 
             Assert.IsTrue(Dom.Document != null, "Dom was created");
             var csq = Dom.Find(url.Value);
@@ -58,16 +58,16 @@ namespace CsQuery.Tests.Core.WebIO
         [Test, TestMethod]
         public void GetHtmlAsync()
         {
-            CQ.CreateFromUrlAsync(urls[0].Key, 1, FinishRequest);
+            CQ2.CreateFromUrlAsync(urls[0].Key, 1, FinishRequest);
             Debug.WriteLine("Started Async Request 1 @" + DateTime.Now);
             AsyncStep |= 1;
             
-            CQ.CreateFromUrlAsync(urls[1].Key, 2,FinishRequest);
+            CQ2.CreateFromUrlAsync(urls[1].Key, 2,FinishRequest);
             Debug.WriteLine("Started Async Request 2 @" + DateTime.Now);
             AsyncStep |= 2;
 
             // Time out after 15 seconds
-            CQ.WaitForAsyncEvents(15000);
+            CQ2.WaitForAsyncEvents(15000);
             AsyncStep |=4;
 
             Debug.WriteLine("Finished Test @" + DateTime.Now);
@@ -82,20 +82,20 @@ namespace CsQuery.Tests.Core.WebIO
             bool p1resolved = false;
             bool p2resolved = false;
 
-            var promise1 = CQ.CreateFromUrlAsync(urls[0].Key)
+            var promise1 = CQ2.CreateFromUrlAsync(urls[0].Key)
                 .Then(new Action<ICsqWebResponse>((resp)  => {
                     Assert.IsTrue(resp.Dom.Find(urls[0].Value).Length >0, "I found an expected content container - if MS changed their web site this could fail.");
                     p1resolved = true;
                 }));
 
-            var promise2 = CQ.CreateFromUrlAsync(urls[1].Key).Then(new Action<ICsqWebResponse>((resp) =>
+            var promise2 = CQ2.CreateFromUrlAsync(urls[1].Key).Then(new Action<ICsqWebResponse>((resp) =>
             {
                 Assert.IsTrue(resp.Dom.Find(urls[1].Value).Length >0, "I found an expected content container - if CNN changed their web site this could fail.");
                 p2resolved = true;
             }));
 
             bool? complete = null;
-            CQ.WhenAll(promise1,promise2).Then(new Action<ICsqWebResponse>((response) =>
+            CQ2.WhenAll(promise1, promise2).Then(new Action<ICsqWebResponse>((response) =>
             {
                 complete = true;
                 Assert.IsTrue(p1resolved, "Promise 1 is resolved");
@@ -108,7 +108,7 @@ namespace CsQuery.Tests.Core.WebIO
             }));
 
             // if we don't do this the test will exit before finishing
-            CQ.WaitForAsyncEvents(10000);
+            CQ2.WaitForAsyncEvents(10000);
             while (complete == null) ;
             Assert.IsTrue(complete==true);
         }
@@ -119,22 +119,20 @@ namespace CsQuery.Tests.Core.WebIO
             bool p1resolved = false;
             bool p2rejected = false;
 
-            var promise1 = CQ.CreateFromUrlAsync(urls[0].Key)
+            var promise1 = CQ2.CreateFromUrlAsync(urls[0].Key)
                 .Then(resp =>
                 {
                     Assert.IsTrue(resp.Dom.Find(urls[0].Value).Length > 0, "I found an expected content container - if MS changed their web site this could fail.");
                     p1resolved = true;
                 });
 
-            var promise2 = CQ.CreateFromUrlAsync("http://www.bad-domain.zzyzx/").Then(null,
+            var promise2 = CQ2.CreateFromUrlAsync("http://www.bad-domain.zzyzx/").Then(null,
                 resp =>
                 {
                     p2rejected = true;
-                });
-
-
+                }); 
             bool complete = false;
-            CQ.WhenAll(promise1, promise2).Then(response =>
+            CQ2.WhenAll(promise1, promise2).Then(response =>
             {
                 Assert.Fail("This should have been rejected");
             }, response =>
@@ -146,7 +144,7 @@ namespace CsQuery.Tests.Core.WebIO
             });
 
             // if we don't do this the test will exit before finishing
-            CQ.WaitForAsyncEvents(10000);
+            CQ2.WaitForAsyncEvents(10000);
 
             Assert.IsTrue(complete, "Complete flag was set properly.");
 
