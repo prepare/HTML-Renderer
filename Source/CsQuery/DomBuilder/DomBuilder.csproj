@@ -42,7 +42,7 @@
     <Compile Include="Engine\DomIndexProviders.cs" />
     <Compile Include="Engine\DomIndexRanged.cs" />
     <Compile Include="Engine\DomIndexSimple.cs" />
-    <Compile Include="Engine\enumDomIndexFeatures.cs" />
+    <Compile Include="Engine\DomIndexFeatures.cs" />
     <Compile Include="Helper\DomDocHelper.cs" />
     <Compile Include="HtmlParser\BOMReader.cs" />
     <Compile Include="HtmlParser\CsQueryTreeBuilder.cs" />
