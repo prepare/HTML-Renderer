@@ -11,7 +11,7 @@ namespace CsQuery.Utility
     /// Provides information about the web browser used to access the current page (from HttpContext)
     /// </summary>
 
-    public class Browser
+    public class BrowserInfo
     {
         /// <summary>
         /// Create a new instance from an HttpContext
@@ -21,7 +21,7 @@ namespace CsQuery.Utility
         /// The context.
         /// </param>
 
-        public Browser(HttpContext context)
+        public BrowserInfo(HttpContext context)
         {
             Context = context;
             

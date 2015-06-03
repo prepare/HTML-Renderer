@@ -6,9 +6,7 @@ using System.Dynamic;
 using CsQuery.Engine;
 using CsQuery.Output;
 using CsQuery.Implementation;
-using System.Net;
-using HttpWebAdapters;
-
+using System.Net; 
 namespace CsQuery
 {
     /// <summary>
@@ -146,13 +144,13 @@ namespace CsQuery
         /// implementation for testing.
         /// </summary>
 
-        public static IHttpWebRequestFactory WebRequestFactory
-        {
-            get
-            {
-                return DefaultConfig.WebRequestFactory;
-            }
-        }
+        //public static IHttpWebRequestFactory WebRequestFactory
+        //{
+        //    get
+        //    {
+        //        return DefaultConfig.WebRequestFactory;
+        //    }
+        //}
 
 
         /// <summary>

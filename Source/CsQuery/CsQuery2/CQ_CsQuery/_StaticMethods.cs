@@ -11,7 +11,7 @@ using System.Web.Script.Serialization;
 using CsQuery.ExtensionMethods.Internal;
 using CsQuery.Utility;
 using CsQuery.Engine;
-using CsQuery.Web;
+
 using CsQuery.Promises;
 using CsQuery.HtmlParser;
 using CsQuery.Implementation;
@@ -57,7 +57,7 @@ namespace CsQuery
 
         #region private properties
         
-        private static Browser _Browser;
+        private static BrowserInfo _Browser;
         
         #endregion
 
@@ -199,13 +199,13 @@ namespace CsQuery
         /// (Alpha) Provide simple user agent information.
         /// </summary>
 
-        public static Browser Browser
+        public static BrowserInfo Browser
         {
             get
             {
                 if (_Browser == null)
                 {
-                    _Browser = new Browser(HttpContext.Current);
+                    _Browser = new BrowserInfo(HttpContext.Current);
                 }
 
                 return _Browser;

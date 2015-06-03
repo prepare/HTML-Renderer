@@ -6,9 +6,7 @@ using System.Dynamic;
 using CsQuery.Engine;
 using CsQuery.Output;
 using CsQuery.Implementation;
-using System.Net;
-using HttpWebAdapters;
-
+using System.Net; 
 namespace CsQuery
 {
     /// <summary>
@@ -189,18 +187,18 @@ namespace CsQuery
         /// implementation for testing.
         /// </summary>
 
-        public IHttpWebRequestFactory WebRequestFactory
-        {
-            get
-            {
-                if (_WebRequestFactory == null)
-                {
-                    _WebRequestFactory = new HttpWebRequestFactory();
-                }
-                return _WebRequestFactory;
-            }
-        }
-        private IHttpWebRequestFactory _WebRequestFactory;
+        //public IHttpWebRequestFactory WebRequestFactory
+        //{
+        //    get
+        //    {
+        //        if (_WebRequestFactory == null)
+        //        {
+        //            _WebRequestFactory = new HttpWebRequestFactory();
+        //        }
+        //        return _WebRequestFactory;
+        //    }
+        //}
+        //private IHttpWebRequestFactory _WebRequestFactory;
 
         /// <summary>
         /// Default document type. This is the parsing mode that will be used when creating documents
