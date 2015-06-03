@@ -14,7 +14,7 @@ using Description = NUnit.Framework.DescriptionAttribute;
 using TestContext = Microsoft.VisualStudio.TestTools.UnitTesting.TestContext;
 using CsQuery;
 using CsQuery.Utility;
-using CsQuery.ExtensionMethods.Xml;
+//using CsQuery.ExtensionMethods.Xml;
 
 namespace CsQuery.Tests.ExtensionMethods
 {
