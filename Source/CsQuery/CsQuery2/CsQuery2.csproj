@@ -128,7 +128,7 @@
     <Compile Include="Engine\PseudoClassSelectors\Css\NthOfType.cs" />
     <Compile Include="Engine\PseudoClassSelectors\Css\OnlyChild.cs" />
     <Compile Include="Engine\PseudoClassSelectors\Css\OnlyOfType.cs" />
-    <Compile Include="Engine\PseudoClassSelectors\enumQuotingRule.cs" />
+    <Compile Include="Engine\PseudoClassSelectors\QuotingRule.cs" />
     <Compile Include="Engine\PseudoClassSelectors\IPseudoSelector.cs" />
     <Compile Include="Engine\PseudoClassSelectors\IPseudoSelectorChild.cs" />
     <Compile Include="Engine\PseudoClassSelectors\IPseudoSelectorFilter.cs" />
@@ -156,8 +156,8 @@
     <Compile Include="Engine\SelectorClause.cs" />
     <Compile Include="Engine\SelectorEngine.cs" />
     <Compile Include="Engine\SelectorParser.cs" />
-    <Compile Include="EquationParser\enumAssociation.cs" />
-    <Compile Include="EquationParser\enumOperationType.cs" />
+    <Compile Include="EquationParser\Association.cs" />
+    <Compile Include="EquationParser\OperationType.cs" />
     <Compile Include="EquationParser\Equations.cs" />
     <Compile Include="EquationParser\IClause.cs" />
     <Compile Include="EquationParser\IEquation.cs" />
@@ -198,7 +198,7 @@
     <Compile Include="HtmlParser.ParserAndTreeBuilders\Parser.cs" />
     <Compile Include="HtmlParser.ParserAndTreeBuilders\SimpleHtmlParser.cs" />
     <Compile Include="HtmlParser.ParserAndTreeBuilders\XmlTreeBuilder.cs" />
-    <Compile Include="HtmlParser\CsQueryTreeBuilder.cs" />
+    <Compile Include="HtmlParser.ParserAndTreeBuilders\CsQueryTreeBuilder.cs" />
     <Compile Include="Implementation\enumSelectionSetOrder.cs" />
     <Compile Include="Implementation\MonoDictionary.cs" />
     <Compile Include="Implementation\MonoSortedSet.cs" />
