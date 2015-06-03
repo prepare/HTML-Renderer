@@ -33,11 +33,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Config\DomRenderingOptions.cs" />
-    <Compile Include="Dom\DomIndex\IDomIndexProvider.cs" />
-    <Compile Include="Dom\DomIndex\IDomIndexQueue.cs" />
-    <Compile Include="Dom\DomIndex\IDomIndexRanged.cs" />
-    <Compile Include="Dom\DomIndex\IDomIndexSimple.cs" />
-    <Compile Include="Dom\DomIndex\IndexOperation.cs" />
+    <Compile Include="IndexEngine\IDomIndexProvider.cs" />
+    <Compile Include="IndexEngine\IDomIndexQueue.cs" />
+    <Compile Include="IndexEngine\IDomIndexRanged.cs" />
+    <Compile Include="IndexEngine\IDomIndexSimple.cs" />
+    <Compile Include="IndexEngine\IndexOperation.cs" />
     <Compile Include="Dom\CSSRuleType.cs" />
     <Compile Include="Dom\CssStyleType.cs" />
     <Compile Include="Dom\DocType.cs" />
@@ -156,7 +156,7 @@
     <Compile Include="StringScanner\Patterns\OptionallyQuoted.cs" />
     <Compile Include="StringScanner\Patterns\Quoted.cs" />
     <Compile Include="StringScanner\Scanner.cs" />
-    <Compile Include="Utility\Support.cs" />
+    <Compile Include="Utility\Support3.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using System.Text;
-using CsQuery.Implementation;
-
+using System.Text; 
 namespace CsQuery.Engine
 {
     /// <summary>
