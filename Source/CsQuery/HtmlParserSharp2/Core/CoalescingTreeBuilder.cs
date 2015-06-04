@@ -30,56 +30,46 @@ using System.Text;
 
 namespace HtmlParserSharp.Core
 {
-   
 
-	/// <summary>
-	/// A common superclass for tree builders that coalesce their text nodes.
-	/// </summary>
-	public abstract class CoalescingTreeBuilder<T> : TreeBuilder<T> where T : class
-	{
-		override protected void AppendCharacters(T parent, char[] buf, int start, int length)
-		{
-			AppendCharacters(parent, new String(buf, start, length));
-		}
-        override protected void AppendCharacters(T parent, StringBuilder sb)
+    //tree builder is similar to parser listener 
+
+    /// <summary>
+    /// A common superclass for tree builders that coalesce their text nodes.
+    /// </summary>
+    public abstract class CoalescingTreeBuilder<T> : TreeBuilder<T> where T : class
+    {
+        protected abstract void AppendCharacters(T parent, string text);
+        protected abstract void AppendComment(T parent, string comment);
+        protected abstract void AppendCommentToDocument(string comment);
+        protected abstract void InsertFosterParentedCharacters(string text, T table, T stackParent);
+
+
+        protected override void AppendCharacters(T parent, char[] buf, int start, int length)
+        {
+            AppendCharacters(parent, new String(buf, start, length));
+        }
+        protected override void AppendCharacters(T parent, StringBuilder sb)
         {
             AppendCharacters(parent, sb.ToString());
         }
 
-		override protected void AppendIsindexPrompt(T parent)
-		{
-			AppendCharacters(parent, "This is a searchable index. Enter search keywords: ");
-		}
-
-		protected abstract void AppendCharacters(T parent, string text);
-
-		override protected void AppendComment(T parent, char[] buf, int start, int length)
-		{
-			AppendComment(parent, new String(buf, start, length));
-		}
-
-		protected abstract void AppendComment(T parent, string comment);
-
-		override protected void AppendCommentToDocument(char[] buf, int start, int length)
-		{
-			// TODO Auto-generated method stub
-			AppendCommentToDocument(new String(buf, start, length));
-		}
-
-		protected abstract void AppendCommentToDocument(string comment);
-
-        //override protected void InsertFosterParentedCharacters(char[] buf, int start,
-        //        int length, T table, T stackParent)
-        //{
-        //    InsertFosterParentedCharacters(new String(buf, start, length), table, stackParent);
-        //}
-
+        protected override void AppendIsindexPrompt(T parent)
+        {
+            AppendCharacters(parent, "This is a searchable index. Enter search keywords: ");
+        } 
+        protected override void AppendComment(T parent, char[] buf, int start, int length)
+        {
+            AppendComment(parent, new String(buf, start, length));
+        } 
+        protected override void AppendCommentToDocument(char[] buf, int start, int length)
+        {
+            AppendCommentToDocument(new String(buf, start, length));
+        } 
         protected override void InsertFosterParentedCharacters(StringBuilder sb, T table, T stackParent)
         {
             InsertFosterParentedCharacters(sb.ToString(), table, stackParent);
         }
 
-		protected abstract void InsertFosterParentedCharacters(string text, T table, T stackParent);
-	}
+    }
 
 }

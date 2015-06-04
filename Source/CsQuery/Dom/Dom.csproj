@@ -33,11 +33,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Config\DomRenderingOptions.cs" />
-    <Compile Include="IndexEngine\IDomIndexProvider.cs" />
-    <Compile Include="IndexEngine\IDomIndexQueue.cs" />
-    <Compile Include="IndexEngine\IDomIndexRanged.cs" />
-    <Compile Include="IndexEngine\IDomIndexSimple.cs" />
-    <Compile Include="IndexEngine\IndexOperation.cs" />
     <Compile Include="Dom\CSSRuleType.cs" />
     <Compile Include="Dom\CssStyleType.cs" />
     <Compile Include="Dom\DocType.cs" />

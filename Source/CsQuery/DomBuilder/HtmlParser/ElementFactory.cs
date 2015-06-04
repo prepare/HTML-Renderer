@@ -309,7 +309,7 @@ namespace CsQuery.HtmlParser
 
                 // either way strip the BOM.
 
-                stream = new CombinedStream(bomReader.StreamWithoutBOM, inputStream);
+                stream = new CombinedStream(bomReader.GetStreamWithoutBOM(), inputStream);
             }
             else
             {

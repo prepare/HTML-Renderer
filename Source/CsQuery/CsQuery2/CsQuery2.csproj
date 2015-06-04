@@ -193,12 +193,10 @@
     <Compile Include="EquationParser\IVariableContainer.cs" />
     <Compile Include="ExtensionMethods\ExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\Forms.cs" />
-    <Compile Include="ExtensionMethods\Internal\ExtensionMethods.cs" />
-    <Compile Include="HtmlParser.ParserAndTreeBuilders\Parser.cs" />
-    <Compile Include="HtmlParser.ParserAndTreeBuilders\SimpleHtmlParser.cs" />
-    <Compile Include="HtmlParser.ParserAndTreeBuilders\XmlTreeBuilder.cs" />
-    <Compile Include="HtmlParser.ParserAndTreeBuilders\CsQueryTreeBuilder.cs" />
-    <Compile Include="Implementation\enumSelectionSetOrder.cs" />
+    <Compile Include="ExtensionMethods\ExtensionMethods2.cs" />
+    <Compile Include="BasicHtmlBuilder\SimpleHtmlParser.cs" />
+    <Compile Include="BasicHtmlBuilder\XmlTreeBuilder.cs" />
+    <Compile Include="Implementation\SelectionSetOrder.cs" />
     <Compile Include="Implementation\MonoDictionary.cs" />
     <Compile Include="Implementation\MonoSortedSet.cs" />
     <Compile Include="Implementation\RangeSortedDictionary.cs" />

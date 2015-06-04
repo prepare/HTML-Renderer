@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections; 
+using System.Collections;
 using CsQuery.StringScanner;
- 
+
 namespace CsQuery.ExtensionMethods.Internal
 {
     static class ExtensionMethods
@@ -15,7 +15,7 @@ namespace CsQuery.ExtensionMethods.Internal
         public static string CleanUp(this string value)
         {
             return (value ?? String.Empty).Trim();
-        } 
+        }
         /// <summary>
         /// Perform a string split using whitespace demarcators (' ', tab, newline, return) and trimming each result
         /// </summary>
@@ -34,9 +34,7 @@ namespace CsQuery.ExtensionMethods.Internal
         /// <returns></returns>
         public static IEnumerable<string> SplitClean(this string text, char separator)
         {
-            char[] sep = new char[1];
-            sep[0] = separator;
-            return SplitClean(text, sep);
+            return SplitClean(text, new char[] { separator });
         }
 
         /// <summary>
@@ -49,14 +47,17 @@ namespace CsQuery.ExtensionMethods.Internal
         {
 
             string[] list = (text ?? "").Split(separator, StringSplitOptions.RemoveEmptyEntries);
-            if (list.Length > 0)
+            int j = 0;
+            if ((j = list.Length) > 0)
             {
-                HashSet<string> UniqueList = new HashSet<string>();
-                for (int i = 0; i < list.Length; i++)
+                var uniquelist = new Dictionary<string, int>();
+                for (int i = 0; i < j; ++i)
                 {
-                    if (UniqueList.Add(list[i]))
+                    string item = list[i].Trim();
+                    if (!uniquelist.ContainsKey(item))
                     {
-                        yield return list[i].Trim();
+                        uniquelist.Add(item, 0);
+                        yield return item;
                     }
                 }
             }
@@ -65,4 +66,3 @@ namespace CsQuery.ExtensionMethods.Internal
 
     }
 }
- 

@@ -15,8 +15,9 @@ namespace CsQuery.Utility
     /// <summary>
     /// Some static methods that didn't fit in anywhere else. 
     /// </summary>
-    public static class Support3
+    static class Support3
     {
+
         /// <summary>
         ///  Gets a resource from the calling assembly
         /// </summary>
@@ -55,11 +56,11 @@ namespace CsQuery.Utility
         /// The resource stream.
         /// </returns>
 
-        public static Stream GetResourceStream(string resourceName, string assembly)
-        {
-            Assembly loadedAssembly = Assembly.Load(assembly);
-            return GetResourceStream(resourceName, loadedAssembly);
-        }
+        //public static Stream GetResourceStream(string resourceName, string assembly)
+        //{
+        //    Assembly loadedAssembly = Assembly.Load(assembly);
+        //    return GetResourceStream(resourceName, loadedAssembly);
+        //}
         /// <summary>
         ///Convert a string value to a double, or zero if non-numeric
         /// </summary>

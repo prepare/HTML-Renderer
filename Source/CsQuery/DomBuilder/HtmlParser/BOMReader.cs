@@ -28,7 +28,7 @@ namespace CsQuery.HtmlParser
             InputStream = stream;
             Parse();
         }
-        
+
         private const int XmlBlockSize = 256;
         private Stream InputStream;
         private byte[] Header = new byte[5];
@@ -58,33 +58,33 @@ namespace CsQuery.HtmlParser
         /// The input stream stripped of the BOM
         /// </summary>
 
-        public Stream StreamWithoutBOM 
-        { 
-            get {
-                if (!IsBOM)
-                {
-                    return StreamWithBOM;
-                }
+        public Stream GetStreamWithoutBOM()
+        {
 
-                Stream stream;
-                if (InputStream.CanSeek)
-                {
-                    InputStream.Position = BomLength;
-                    stream = InputStream;
-                }
-                else if (InputStream.CanRead)
-                {
-                    var headerStream = new MemoryStream(Header, BomLength, BytesRead - BomLength);
-                    stream = new CombinedStream(headerStream, InputStream);
-                }
-                else
-                {
-                    // means the stream was shorter than the preamble we tried to read.
-                    
-                    stream = new MemoryStream(Header, BomLength, BytesRead - BytesRead);
-                }
-                return stream;
+            if (!IsBOM)
+            {
+                return GetStreamWithBOM();
             }
+
+            Stream stream;
+            if (InputStream.CanSeek)
+            {
+                InputStream.Position = BomLength;
+                stream = InputStream;
+            }
+            else if (InputStream.CanRead)
+            {
+                var headerStream = new MemoryStream(Header, BomLength, BytesRead - BomLength);
+                stream = new CombinedStream(headerStream, InputStream);
+            }
+            else
+            {
+                // means the stream was shorter than the preamble we tried to read.
+
+                stream = new MemoryStream(Header, BomLength, BytesRead - BytesRead);
+            }
+            return stream;
+
 
         }
 
@@ -92,27 +92,26 @@ namespace CsQuery.HtmlParser
         /// The original stream
         /// </summary>
 
-        public Stream StreamWithBOM
+        public Stream GetStreamWithBOM()
         {
-            get
+
+            Stream stream;
+            if (InputStream.CanSeek)
             {
-                Stream stream;
-                if (InputStream.CanSeek)
-                {
-                    InputStream.Position = 0;
-                    stream = InputStream;
-                }
-                else if (InputStream.CanRead)
-                {
-                    var headerStream = new MemoryStream(Header, 0, BytesRead);
-                    stream = new CombinedStream(headerStream, InputStream);
-                }
-                else
-                {
-                    stream = new MemoryStream(Header, 0, BytesRead);
-                }
-                return stream;
+                InputStream.Position = 0;
+                stream = InputStream;
             }
+            else if (InputStream.CanRead)
+            {
+                var headerStream = new MemoryStream(Header, 0, BytesRead);
+                stream = new CombinedStream(headerStream, InputStream);
+            }
+            else
+            {
+                stream = new MemoryStream(Header, 0, BytesRead);
+            }
+            return stream;
+
         }
 
         /// <summary>
@@ -140,52 +139,53 @@ namespace CsQuery.HtmlParser
         protected void Parse()
         {
 
-            BytesRead = InputStream.Read(Header, 0, 5);           
+            BytesRead = InputStream.Read(Header, 0, 5);
             Encoding = GetFileEncoding();
         }
 
         private Encoding GetFileEncoding()
         {
-            
+
             Encoding enc = null;
 
 
             if (Matches(new byte[] { 0xef, 0xbb, 0xbf }))
             {
                 enc = Encoding.UTF8;
-                BomLength=3;
+                BomLength = 3;
                 IsBOM = true;
             }
             else if (Matches(new byte[] { 0x00, 0x00, 0xfe, 0xff }))
             {
                 enc = new UTF32Encoding(true, true);
-                BomLength=4;
+                BomLength = 4;
                 IsBOM = true;
             }
             else if (Matches(new byte[] { 0xff, 0xfe, 0x00, 0x00 }))
             {
                 enc = Encoding.UTF32;
-                BomLength=4;
+                BomLength = 4;
                 IsBOM = true;
             }
-            else if (Matches(new byte[] {  0x2b, 0x2f, 0x76 })) {
+            else if (Matches(new byte[] { 0x2b, 0x2f, 0x76 }))
+            {
                 enc = Encoding.UTF7;
-                BomLength=3;
+                BomLength = 3;
                 IsBOM = true;
             }
             else if (Matches(new byte[] { 0xfe, 0xff }))
             {
                 enc = Encoding.BigEndianUnicode;
-                BomLength=2;
+                BomLength = 2;
                 IsBOM = true;
             }
             else if (Matches(new byte[] { 0xfe, 0xff }))
             {
                 enc = Encoding.Unicode;
-                BomLength=2;
+                BomLength = 2;
                 IsBOM = true;
             }
-                
+
             else if (Matches(new byte[] { 0x3c, 0x3f, 0x78, 0x6d, 0x6c }))
             {
                 enc = GetEncodingFromXML();
@@ -206,14 +206,14 @@ namespace CsQuery.HtmlParser
             BytesRead += InputStream.Read(newBytes, BytesRead, XmlBlockSize - BytesRead);
             Header = newBytes;
 
-            string xml="";
-            char lastC=(char)0;
+            string xml = "";
+            char lastC = (char)0;
             char c = (char)0;
             for (var i = 0; i < BytesRead; i++)
             {
                 lastC = c;
-                c =(char)Header[i];
-                
+                c = (char)Header[i];
+
                 xml += c;
                 if (lastC == '?' && c == '>')
                 {
@@ -234,11 +234,11 @@ namespace CsQuery.HtmlParser
 
                 catch { }
             }
-            
-            
+
+
             return null;
 
-            
+
 
         }
 
@@ -260,10 +260,8 @@ namespace CsQuery.HtmlParser
             {
                 if (Header[i] != buffer[i])
                 {
-
                     return false;
                 }
-
             }
             return true;
         }
