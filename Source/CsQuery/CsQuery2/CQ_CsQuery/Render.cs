@@ -110,8 +110,9 @@ namespace CsQuery
         /// </returns>
 
         public string Render(DomRenderingOptions options)
-        {
-            return Document.Render(options);
+        {   
+            var formatter = new FormatDefault(options, HtmlEncoders.Default);
+            return formatter.Render(Document); 
         }
 
 

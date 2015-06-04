@@ -79,15 +79,7 @@ namespace CsQuery
 
         string Render();
 
-        /// <summary>
-        /// Renders the complete HTML for this element, including its children.
-        /// </summary>
-        ///
-        /// <returns>
-        /// a string of HTML
-        /// </returns>
-
-        string Render(DomRenderingOptions options);
+       
          
         ///// <summary>
         ///// Renders the complete HTML for this element to a StringBuilder. Note: This is obsolete; use Render(IOutputFormatter)

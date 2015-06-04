@@ -17,7 +17,8 @@ namespace CsQuery.Implementation
     /// CSS style declaration.
     /// </summary>
 
-    public class CSSStyleDeclaration : IDictionary<string, string>, IEnumerable<KeyValuePair<string, string>>, ICSSStyleDeclaration
+    public class CSSStyleDeclaration : IDictionary<string, string>, 
+        IEnumerable<KeyValuePair<string, string>>, ICSSStyleDeclaration
     {
         #region constructors
 

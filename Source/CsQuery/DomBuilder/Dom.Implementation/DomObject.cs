@@ -1062,29 +1062,12 @@ namespace CsQuery.Implementation
         /// </returns>
 
         public virtual string Render()
-        {
-
-
-           
+        { 
             var mytype = this.GetType();
             return mytype.Name;
             //return Render(OutputFormatters.Default);
         } 
-        /// <summary>
-        /// Renders the complete HTML for this element, including its children.
-        /// </summary>
-        ///
-        /// <returns>
-        /// a string of HTML
-        /// </returns>
-
-        public virtual string Render(DomRenderingOptions options)
-        {
-            throw new MyNotImplementException();
-            //var formatter = new FormatDefault(options, HtmlEncoders.Default);
-            //return formatter.Render(this);
-
-        }
+    
 
         /// <summary>
         /// Renders the complete HTML for this element, including its children, using the OutputFormatter.
