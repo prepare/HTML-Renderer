@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Config\DomRenderingOptions.cs" />
+    <Compile Include="Dom.Implementation\DomE.cs" />
     <Compile Include="Dom\CSSRuleType.cs" />
     <Compile Include="Dom\CssStyleType.cs" />
     <Compile Include="Dom\DocType.cs" />

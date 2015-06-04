@@ -549,7 +549,7 @@ namespace CsQuery.Implementation
 
         public IDomElement CreateElement(string nodeName) 
         {
-            return DomElement.Create(nodeName);
+            return DomE.Create(nodeName);
         }
 
         /// <summary>

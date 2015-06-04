@@ -7,9 +7,10 @@ using System.IO;
 using System.Diagnostics;
 using CsQuery.StringScanner;
 using CsQuery.HtmlParser;
-using CsQuery.ExtensionMethods.Internal; 
+using CsQuery.ExtensionMethods.Internal;
 namespace CsQuery.Implementation
 {
+
     /// <summary>
     /// HTML elements.
     /// </summary>
@@ -48,6 +49,28 @@ namespace CsQuery.Implementation
         private ushort _NodeNameID;
 
         /// <summary>
+        /// Default constructor.
+        /// </summary>
+
+        public DomElement()
+        {
+            throw new InvalidOperationException("You can't create a DOM element using the default constructor. Please use the DomElement.Create static method instead.");
+        }
+
+        /// <summary>
+        /// Create a new DomElement node of a nodeTipe determined by a token ID.
+        /// </summary>
+        ///
+        /// <param name="tokenId">
+        /// Token represnting an existing tokenized node type.
+        /// </param>
+
+        internal DomElement(ushort tokenId)
+        {
+            _NodeNameID = tokenId;
+        }
+
+        /// <summary>
         /// Gets the dom attributes.
         /// </summary>
 
@@ -84,87 +107,10 @@ namespace CsQuery.Implementation
 
         #region constructors
 
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-
-        public DomElement()
-        {
-            throw new InvalidOperationException("You can't create a DOM element using the default constructor. Please use the DomElement.Create static method instead.");
-        }
-
-        /// <summary>
-        /// Create a new DomElement node of a nodeTipe determined by a token ID.
-        /// </summary>
-        ///
-        /// <param name="tokenId">
-        /// Token represnting an existing tokenized node type.
-        /// </param>
-
-        protected DomElement(ushort tokenId)
-            : base()
-        {
-            _NodeNameID = tokenId;
-        }
-
 
         #endregion
 
-        #region static methods
 
-        /// <summary>
-        /// Creates a new element
-        /// </summary>
-        ///
-        /// <param name="nodeName">
-        /// The NodeName for the element (upper case).
-        /// </param>
-        ///
-        /// <returns>
-        /// A new element that inherits DomElement
-        /// </returns>
-
-        public static DomElement Create(string nodeName)
-        {
-            return Create(HtmlData.Tokenize(nodeName));
-        }
-
-        internal static DomElement Create(ushort nodeNameId)
-        {
-
-            switch (nodeNameId)
-            {
-                case HtmlData.tagA:
-                    return new HtmlAnchorElement();
-                case HtmlData.tagFORM:
-                    return new HtmlFormElement();
-                case HtmlData.tagBUTTON:
-                    return new HTMLButtonElement();
-                case HtmlData.tagINPUT:
-                    return new HTMLInputElement();
-                case HtmlData.tagLABEL:
-                    return new HTMLLabelElement();
-                case HtmlData.tagLI:
-                    return new HTMLLIElement();
-                case HtmlData.tagMETER:
-                    return new HTMLMeterElement();
-                case HtmlData.tagOPTION:
-                    return new HTMLOptionElement();
-                case HtmlData.tagPROGRESS:
-                    return new HTMLProgressElement();
-                case HtmlData.tagSELECT:
-                    return new HTMLSelectElement();
-                case HtmlData.tagTEXTAREA:
-                    return new HTMLTextAreaElement();
-                case HtmlData.tagSTYLE:
-                    return new HTMLStyleElement();
-                case HtmlData.tagSCRIPT:
-                    return new HTMLScriptElement();
-                default:
-                    return new DomElement(nodeNameId);
-            }
-        }
-        #endregion
 
         #region public properties
 
@@ -801,7 +747,7 @@ namespace CsQuery.Implementation
                     StringBuilder sb = new StringBuilder();
                     LatestTextNodeKind lastestTextNodeKind = LatestTextNodeKind.NULL;
                     GetInnerText(this.ChildNodes, sb, ref lastestTextNodeKind);
-                    
+
                     return sb.ToString();
                 }
             }
@@ -956,7 +902,7 @@ namespace CsQuery.Implementation
 
         public override DomElement Clone()
         {
-            var clone = DomElement.Create(_NodeNameID);
+            var clone = DomE.Create(_NodeNameID);
 
             if (HasAttributes)
             {
