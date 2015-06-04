@@ -70,13 +70,12 @@ namespace ManualTest2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ParseHtmlDocument("<html><head></head><body><div>okok1</div></body></html>"); 
+            ParseHtmlDocument("<html><head></head><body><div style='aaa'>okok1</div></body></html>"); 
 
         }
         void ParseHtmlDocument(string htmlFragment)
         {
-
-
+             
             using (Stream s = new MemoryStream(Encoding.UTF8.GetBytes(htmlFragment.ToCharArray())))
             {
                 var domdoc = ElementFactory.Create(s,

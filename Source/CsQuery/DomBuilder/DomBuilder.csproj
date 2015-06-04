@@ -67,6 +67,7 @@
     <Compile Include="Output\HtmlEncoderMinimumNbsp.cs" />
     <Compile Include="Output\HtmlEncoderNone.cs" />
     <Compile Include="Output\IHtmlEncoder.cs" />
+    <Compile Include="Output\IOutputFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

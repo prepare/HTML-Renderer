@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using System.Text;
-using CsQuery.Output;
-
+﻿ 
 namespace CsQuery
 {   
     /// <summary>
@@ -33,10 +28,7 @@ namespace CsQuery
         /// element node types)
         /// </summary>
 
-        int ElementIndex { get; }
-
-
-
+        int ElementIndex { get; } 
 
     }
 }

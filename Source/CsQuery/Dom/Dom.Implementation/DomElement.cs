@@ -7,9 +7,7 @@ using System.IO;
 using System.Diagnostics;
 using CsQuery.StringScanner;
 using CsQuery.HtmlParser;
-using CsQuery.ExtensionMethods.Internal;
-using CsQuery.Output;
-
+using CsQuery.ExtensionMethods.Internal; 
 namespace CsQuery.Implementation
 {
     /// <summary>

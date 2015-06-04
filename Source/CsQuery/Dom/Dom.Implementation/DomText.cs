@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 using System.Text; 
 using System.IO;
-using CsQuery.HtmlParser;
-using CsQuery.Output;
+using CsQuery.HtmlParser; 
 
 namespace CsQuery.Implementation
 {

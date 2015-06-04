@@ -72,7 +72,8 @@ namespace CsQuery
         {
             foreach (IDomObject elm in this)
             {
-                elm.Render(outputFormatter, writer);
+                outputFormatter.Render(elm, writer);
+                 
             }
 
         }
@@ -138,7 +139,7 @@ namespace CsQuery
 
         public string Render(IOutputFormatter formatter)
         {
-            StringBuilder sb= new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             StringWriter writer = new StringWriter(sb);
             Render(formatter, writer);
             return sb.ToString();
@@ -174,11 +175,11 @@ namespace CsQuery
         /// <param name="options">
         /// (optional) options for controlling the operation.
         /// </param>
-        
-        [Obsolete]
-        public void Render(StringBuilder sb, DomRenderingOptions options = DomRenderingOptions.Default)
-        {
-            Document.Render(sb, options);
-        }
+
+        //[Obsolete]
+        //public void Render(StringBuilder sb, DomRenderingOptions options = DomRenderingOptions.Default)
+        //{
+        //    Document.Render(sb, options);
+        //}
     }
 }

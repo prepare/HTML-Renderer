@@ -5,10 +5,7 @@ using System.Text;
 using System.IO;
 using System.Runtime.InteropServices;
 using CsQuery.HtmlParser;
-
-
-using CsQuery.Output;
-
+ 
 namespace CsQuery.Implementation
 {
     /// <summary>
@@ -1072,43 +1069,7 @@ namespace CsQuery.Implementation
             var mytype = this.GetType();
             return mytype.Name;
             //return Render(OutputFormatters.Default);
-        }
-
-        /// <summary>
-        /// Renders the complete HTML for this element, including its children, using the specified
-        /// OutputFormatter.
-        /// </summary>
-        ///
-        /// <param name="formatter">
-        /// The formatter that controls how the ouput is rendered.
-        /// </param>
-        /// <param name="writer">
-        /// The writer to which output should be written.
-        /// </param>
-
-        public virtual void Render(IOutputFormatter formatter, TextWriter writer)
-        {
-            formatter.Render(this, writer);
-        }
-
-        /// <summary>
-        /// Renders the complete HTML for this element, including its children, using the specified
-        /// OutputFormatter.
-        /// </summary>
-        ///
-        /// <param name="formatter">
-        /// The formatter.
-        /// </param>
-        ///
-        /// <returns>
-        /// a string of HTML.
-        /// </returns>
-
-        public virtual string Render(IOutputFormatter formatter)
-        {
-            return formatter.Render(this);
-        }
-
+        } 
         /// <summary>
         /// Renders the complete HTML for this element, including its children.
         /// </summary>
@@ -1134,11 +1095,11 @@ namespace CsQuery.Implementation
         /// </param>
 
 
-        [Obsolete]
-        public virtual void Render(StringBuilder sb)
-        {
-            Render(sb, DomRenderingOptions.Default);
-        }
+        //[Obsolete]
+        //public virtual void Render(StringBuilder sb)
+        //{
+        //    Render(sb, DomRenderingOptions.Default);
+        //}
 
 
         /// <summary>
@@ -1153,11 +1114,11 @@ namespace CsQuery.Implementation
         /// (optional) options for controlling the operation.
         /// </param>
 
-        [Obsolete]
-        public virtual void Render(StringBuilder sb, DomRenderingOptions options)
-        {
-            sb.Append(Render(options));
-        }
+        //[Obsolete]
+        //public virtual void Render(StringBuilder sb, DomRenderingOptions options)
+        //{
+        //    sb.Append(Render(options));
+        //}
 
 
         /// <summary>

@@ -205,17 +205,17 @@ namespace CsQuery.Implementation
             }
         }
 
-        /// <summary>
-        /// Deprecated: DomRenderingOptions are no longer bound to a particular Document instance. Pass
-        /// options to the Render() method, or create an IOutputFormatter instance using options, instead.
-        /// This method will be removed in a future release.
-        /// </summary>
+        ///// <summary>
+        ///// Deprecated: DomRenderingOptions are no longer bound to a particular Document instance. Pass
+        ///// options to the Render() method, or create an IOutputFormatter instance using options, instead.
+        ///// This method will be removed in a future release.
+        ///// </summary>
 
-        [Obsolete]
-        public DomRenderingOptions DomRenderingOptions
-        {
-            get; set;
-        }
+        //[Obsolete]
+        //public DomRenderingOptions DomRenderingOptions
+        //{
+        //    get; set;
+        //}
 
         /// <summary>
         /// The DOM for this object. For Document objects, this returns the same object.

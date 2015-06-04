@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-
-using System.Text;
-using System.IO;
-using CsQuery.Output;
+using System.Collections.Generic; 
+using System.Text; 
 
 namespace CsQuery
 {
@@ -91,39 +88,17 @@ namespace CsQuery
         /// </returns>
 
         string Render(DomRenderingOptions options);
+         
+        ///// <summary>
+        ///// Renders the complete HTML for this element to a StringBuilder. Note: This is obsolete; use Render(IOutputFormatter)
+        ///// </summary>
+        /////
+        ///// <param name="sb">
+        ///// An existing StringBuilder instance to append this element's HTML.
+        ///// </param>
 
-
-        /// <summary>
-        /// Renders the complete HTML for this element, including its children, using the OutputFormatter.
-        /// </summary>
-        ///
-        /// <returns>
-        /// a string of HTML
-        /// </returns>
-
-        string Render(IOutputFormatter formatter);
-
-
-        /// <summary>
-        /// Renders the complete HTML for this element, including its children, using the OutputFormatter.
-        /// </summary>
-        ///
-        /// <returns>
-        /// a string of HTML
-        /// </returns>
-
-        void Render(IOutputFormatter formatter, TextWriter writer);
-
-        /// <summary>
-        /// Renders the complete HTML for this element to a StringBuilder. Note: This is obsolete; use Render(IOutputFormatter)
-        /// </summary>
-        ///
-        /// <param name="sb">
-        /// An existing StringBuilder instance to append this element's HTML.
-        /// </param>
-
-        [Obsolete]
-        void Render(StringBuilder sb);
+        //[Obsolete]
+        //void Render(StringBuilder sb);
 
         /// <summary>
         /// Renders the complete HTML for this element, including its children, using the OutputFormatter.
@@ -136,8 +111,8 @@ namespace CsQuery
         /// (optional) options for controlling the operation.
         /// </param>
 
-        [Obsolete]
-        void Render(StringBuilder sb, DomRenderingOptions options=DomRenderingOptions.Default);
+        //[Obsolete]
+        //void Render(StringBuilder sb, DomRenderingOptions options=DomRenderingOptions.Default);
 
         /// <summary>
         /// Removes this object from it's parent, and consequently the Document, if any, to which it belongs.
