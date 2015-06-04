@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Runtime.InteropServices;
 using CsQuery.HtmlParser;
- 
+
 namespace CsQuery.Implementation
 {
     /// <summary>
@@ -1062,58 +1062,11 @@ namespace CsQuery.Implementation
         /// </returns>
 
         public virtual string Render()
-        { 
+        {
             var mytype = this.GetType();
             return mytype.Name;
             //return Render(OutputFormatters.Default);
-        } 
-    
-
-        /// <summary>
-        /// Renders the complete HTML for this element, including its children, using the OutputFormatter.
-        /// </summary>
-        ///
-        /// <param name="sb">
-        /// An existing StringBuilder instance to append this element's HTML.
-        /// </param>
-
-
-        //[Obsolete]
-        //public virtual void Render(StringBuilder sb)
-        //{
-        //    Render(sb, DomRenderingOptions.Default);
-        //}
-
-
-        /// <summary>
-        /// Renders the complete HTML for this element to a StringBuilder. Note: This obsolete and will
-        /// be removed; please use Render(IOutputFormatter).
-        /// </summary>
-        ///
-        /// <param name="sb">
-        /// An existing StringBuilder instance to append this element's HTML.
-        /// </param>
-        /// <param name="options">
-        /// (optional) options for controlling the operation.
-        /// </param>
-
-        //[Obsolete]
-        //public virtual void Render(StringBuilder sb, DomRenderingOptions options)
-        //{
-        //    sb.Append(Render(options));
-        //}
-
-
-        /// <summary>
-        /// Wrap this element in a CQ object. This is the CsQuery equivalent of the common jQuery
-        /// construct $(el). Since there is no default method in C# that we can use to create a similar
-        /// syntax, this method serves the same purpose.
-        /// </summary>
-        ///
-        /// <returns>
-        /// A new CQ object wrapping this element.
-        /// </returns>
-
+        }
 
 
         /// <summary>
@@ -1730,7 +1683,7 @@ namespace CsQuery.Implementation
 
         protected void UpdateDocumentFlags(IDomDocument document)
         {
-            
+
             _Document = document;
             SetDocFlags();
             // I think we can get away without resetting children. When removing something from a document,
@@ -1803,8 +1756,8 @@ namespace CsQuery.Implementation
 
         public int CompareTo(IDomObject other)
         {
-            throw new MyNotImplementException();
-            //return PathKeyComparer.Comparer.Compare(NodePath, other.NodePath);
+            
+            return PathKeyComparer.Comparer.Compare(NodePath, other.NodePath);
         }
         #endregion
 

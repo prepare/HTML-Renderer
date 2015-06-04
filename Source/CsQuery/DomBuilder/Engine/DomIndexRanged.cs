@@ -12,7 +12,7 @@ namespace CsQuery.Engine
     /// selection engine; when availabile it will be use to optimize subqueries.
     /// </summary>
 
-    public class DomIndexRanged: IDomIndex, IDomIndexSimple, IDomIndexRanged, IDomIndexQueue
+    public class DomIndexRanged : IDomIndex, IDomIndexSimple, IDomIndexRanged, IDomIndexQueue
     {
         /// <summary>
         /// Default constructor.
@@ -25,7 +25,7 @@ namespace CsQuery.Engine
 
         private RangeSortedDictionary<ushort, IDomObject> _SelectorXref;
 
-        private Queue<IndexOperation> __PendingIndexChanges=null;
+        private Queue<IndexOperation> __PendingIndexChanges = null;
         private Queue<IndexOperation> _PendingIndexChanges
         {
             get
@@ -102,7 +102,7 @@ namespace CsQuery.Engine
         public void AddToIndex(IDomIndexedNode element)
         {
 
-            
+
             ushort[] path = element.IndexReference.NodePath;
 
             QueueAddToIndex(RangePath(path), element);
@@ -110,7 +110,7 @@ namespace CsQuery.Engine
 
             foreach (ushort[] key in element.IndexKeys())
             {
-                QueueAddToIndex(RangePath(key,path), element);
+                QueueAddToIndex(RangePath(key, path), element);
             }
 
             if (element.HasChildren)
@@ -123,7 +123,7 @@ namespace CsQuery.Engine
 
         }
 
-        
+
         /// <summary>
         /// Adds an element to the index for the specified key.
         /// </summary>
@@ -137,7 +137,7 @@ namespace CsQuery.Engine
 
         public void AddToIndex(ushort[] key, IDomIndexedNode element)
         {
-            QueueAddToIndex(RangePath(key, element),element);
+            QueueAddToIndex(RangePath(key, element), element);
         }
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace CsQuery.Engine
 
         public void RemoveFromIndex(ushort[] key, IDomIndexedNode element)
         {
-            QueueRemoveFromIndex(RangePath(key,element));
+            QueueRemoveFromIndex(RangePath(key, element));
         }
 
         /// <summary>
@@ -184,7 +184,7 @@ namespace CsQuery.Engine
 
             foreach (ushort[] key in element.IndexKeys())
             {
-                QueueRemoveFromIndex(RangePath(key,path));
+                QueueRemoveFromIndex(RangePath(key, path));
             }
         }
 
@@ -231,8 +231,8 @@ namespace CsQuery.Engine
             ProcessQueue();
 
             ushort[] subKey = new ushort[key.Length + 1];
-            Buffer.BlockCopy(key, 0, subKey, 0, key.Length<<1);
-            
+            Buffer.BlockCopy(key, 0, subKey, 0, key.Length << 1);
+
             subKey[key.Length] = HtmlData.indexSeparator;
 
 
@@ -281,7 +281,7 @@ namespace CsQuery.Engine
         {
             if (QueueChanges)
             {
-              
+
                 PendingIndexChanges.Enqueue(new IndexOperation
                 {
                     Key = key,
@@ -407,7 +407,7 @@ namespace CsQuery.Engine
         {
             ushort[] output = new ushort[path.Length + 1];
             output[0] = HtmlData.indexSeparator;
-            
+
             int j = 0;
             int i = 1;
             while (j < path.Length)

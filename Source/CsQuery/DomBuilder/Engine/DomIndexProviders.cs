@@ -23,10 +23,10 @@ namespace CsQuery
             _NoDomIndexProvider = new NoDomIndexProvider();
         }
 
-        private static IDomIndexProvider _RangedDomIndexProvider;
-        private static IDomIndexProvider _SimpleDomIndexProvider;
-        private static IDomIndexProvider _NoDomIndexProvider;
-        
+        static IDomIndexProvider _RangedDomIndexProvider;
+        static IDomIndexProvider _SimpleDomIndexProvider;
+        static IDomIndexProvider _NoDomIndexProvider;
+
         /// <summary>
         /// Return a SimpleDomIndex provider
         /// </summary>
@@ -72,7 +72,7 @@ namespace CsQuery
     ///  DomIndexProvider returning a SimpleDomIndex
     /// </summary>
 
-    public class SimpleDomIndexProvider : IDomIndexProvider
+    class SimpleDomIndexProvider : IDomIndexProvider
     {
         /// <summary>
         /// Return an instance of a DomIndex class.
@@ -94,7 +94,7 @@ namespace CsQuery
     /// DomIndexProvider returning a RangedDomIndex
     /// </summary>
 
-    public class RangedDomIndexProvider : IDomIndexProvider
+    class RangedDomIndexProvider : IDomIndexProvider
     {
         /// <summary>
         /// Return an instance of a DomIndex class.
@@ -114,7 +114,7 @@ namespace CsQuery
     /// DomIndexProvider returning a RangedDomIndex
     /// </summary>
 
-    public class NoDomIndexProvider : IDomIndexProvider
+    class NoDomIndexProvider : IDomIndexProvider
     {
         /// <summary>
         /// Return an instance of a DomIndex class.

@@ -41,7 +41,7 @@ namespace CsQuery.Engine
             }
         }
 
-        private IDictionary<ushort[], IndexValue> Index;
+        IDictionary<ushort[], IndexValue> Index;
 
 
 

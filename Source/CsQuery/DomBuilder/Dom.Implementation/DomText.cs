@@ -41,9 +41,7 @@ namespace CsQuery.Implementation
         /// The inner node value; the text.
         /// </summary>
 
-        protected string _NodeValue;
-
-
+        string _nodeValue; 
         /// <summary>
         /// The node (tag) name, in upper case. For Text nodes, this is always "#text".
         /// </summary>
@@ -75,11 +73,11 @@ namespace CsQuery.Implementation
         {
             get
             {
-                return _NodeValue ?? "";
+                return _nodeValue ?? "";
             }
             set
             {
-                _NodeValue = value;
+                _nodeValue = value;
             }
         }
 

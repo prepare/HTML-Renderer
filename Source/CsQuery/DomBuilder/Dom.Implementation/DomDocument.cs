@@ -280,17 +280,16 @@ namespace CsQuery.Implementation
             get
             {
                 // If explicitly set, return that value, otherwise get from DomDocument node
-                throw new MyNotImplementException();
-
-                //IDomDocumentType docNode = DocTypeNode;
-                //if (docNode == null)
-                //{
-                //    return Config.DocType;
-                //}
-                //else
-                //{
-                //    return docNode.DocType;
-                //}
+               
+                IDomDocumentType docNode = DocTypeNode;
+                if (docNode == null)
+                {
+                    return Config.DocType;
+                }
+                else
+                {
+                    return docNode.DocType;
+                }
             }
             protected set
             {

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-using System.Text; 
+using System.Text;
 using CsQuery.HtmlParser;
 using CsQuery.Implementation;
 
@@ -26,7 +26,7 @@ namespace CsQuery.Implementation
     /// Type of the value
     /// </typeparam>
 
-    public class RangeSortedDictionary<TKey, TValue> : IRangeSortedDictionary<TKey, TValue> where TKey : IConvertible, IComparable
+    class RangeSortedDictionary<TKey, TValue> : IRangeSortedDictionary<TKey, TValue> where TKey : IConvertible, IComparable
     {
         #region constructor
 
