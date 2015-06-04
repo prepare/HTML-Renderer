@@ -136,7 +136,7 @@ namespace CsQuery.Tests
                 }
                 if (!ok)
                 {
-                    Errors.Add(String.Format("The class {0} had only one of two required attributes to identify a test class.", Support.TypePath(type)));
+                    Errors.Add(String.Format("The class {0} had only one of two required attributes to identify a test class.", Support2.TypePath(type)));
                 }
             }
             return hasAttributes.Count == 2;
@@ -165,7 +165,7 @@ namespace CsQuery.Tests
             }
             if (hasAttributes.Count > 0 && hasAttributes.Count != 2)
             {
-                Errors.Add(String.Format("The method {0} had only one of two required attributes to identify a test method.", Support.MethodPath(mi)));
+                Errors.Add(String.Format("The method {0} had only one of two required attributes to identify a test method.", Support2.MethodPath(mi)));
             }
 
         }

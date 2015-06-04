@@ -32,7 +32,7 @@ namespace CsQuery.HtmlParser
         static HtmlStyles()
         {
             XmlDocument xDoc = new XmlDocument();
-            Stream dataStream = Support.GetResourceStream("CsQuery.Resources." + CssDefs);
+            Stream dataStream = Support3.GetResourceStream("CsQuery.Resources." + CssDefs);
             xDoc.Load(dataStream);
 
             XmlNamespaceManager nsMan = new XmlNamespaceManager(xDoc.NameTable);

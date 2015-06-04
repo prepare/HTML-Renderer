@@ -6,16 +6,21 @@ using System.Dynamic;
 using CsQuery.Engine;
 using CsQuery.Output;
 using CsQuery.Implementation;
-using System.Net; 
+using System.Net;
+using HttpWebAdapters;
+
 namespace CsQuery
 {
+
+
+
     /// <summary>
     /// Global configuration and defaults
     /// </summary>
 
     public class CsQueryConfig2
     {
-        #region constructor 
+        #region constructor
 
         /// <summary>
         /// Default constructor; populates the CsQueryConfig object with system default options.
@@ -24,7 +29,7 @@ namespace CsQuery
         public CsQueryConfig2()
         {
             DynamicObjectType = typeof(JsObject);
-            DomRenderingOptions =   DomRenderingOptions.QuoteAllAttributes;
+            DomRenderingOptions = DomRenderingOptions.QuoteAllAttributes;
             HtmlParsingOptions = HtmlParsingOptions.None;
             HtmlEncoder = HtmlEncoders.Basic;
             DocType = DocType.HTML5;
@@ -41,7 +46,7 @@ namespace CsQuery
         private DomRenderingOptions _DomRenderingOptions;
         private HtmlParsingOptions _HtmlParsingOptions;
         private IOutputFormatter _OutputFormatter;
-        private Func<IOutputFormatter>  _GetOutputFormatter;
+        private Func<IOutputFormatter> _GetOutputFormatter;
 
         /// <summary>
         /// Internal to avoid Obsolete warning from DomRenderingOptions until we remove it
@@ -92,11 +97,14 @@ namespace CsQuery
         /// have any effect on output.
         /// </summary>
 
-        public DomRenderingOptions DomRenderingOptions  {
-            get {
-                return _DomRenderingOptions;   
+        public DomRenderingOptions DomRenderingOptions
+        {
+            get
+            {
+                return _DomRenderingOptions;
             }
-            set {
+            set
+            {
                 if (value.HasFlag(DomRenderingOptions.Default))
                 {
                     throw new InvalidOperationException("The default DomRenderingOptions cannot contain DomRenderingOptions.Default");
@@ -135,7 +143,7 @@ namespace CsQuery
             set;
         }
 
-        
+
 
         /// <summary>
         /// The default OutputFormatter. The GetOutputFormatter property can also be used to provide a
@@ -143,7 +151,8 @@ namespace CsQuery
         /// supersede any existing value of this property.
         /// </summary>
 
-        public IOutputFormatter OutputFormatter {
+        public IOutputFormatter OutputFormatter
+        {
             get
             {
                 if (GetOutputFormatter != null)
@@ -187,18 +196,18 @@ namespace CsQuery
         /// implementation for testing.
         /// </summary>
 
-        //public IHttpWebRequestFactory WebRequestFactory
-        //{
-        //    get
-        //    {
-        //        if (_WebRequestFactory == null)
-        //        {
-        //            _WebRequestFactory = new HttpWebRequestFactory();
-        //        }
-        //        return _WebRequestFactory;
-        //    }
-        //}
-        //private IHttpWebRequestFactory _WebRequestFactory;
+        public IHttpWebRequestFactory WebRequestFactory
+        {
+            get
+            {
+                if (_WebRequestFactory == null)
+                {
+                    _WebRequestFactory = new HttpWebRequestFactory();
+                }
+                return _WebRequestFactory;
+            }
+        }
+        private IHttpWebRequestFactory _WebRequestFactory;
 
         /// <summary>
         /// Default document type. This is the parsing mode that will be used when creating documents
@@ -220,7 +229,7 @@ namespace CsQuery
                 _DocType = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the default dynamic object type. This is the type of object used by default when
         /// parsing JSON into an unspecified type.
@@ -249,6 +258,210 @@ namespace CsQuery
         }
 
 
+        #endregion
+
+    }
+
+
+    /// <summary>
+    /// Global configuration and defaults
+    /// </summary>
+
+    static class Config3
+    {
+        #region constructor
+
+        static Config3()
+        {
+            DefaultConfig = new CsQueryConfig2();
+        }
+
+        #endregion
+
+        #region private properties
+
+        private static CsQueryConfig2 DefaultConfig;
+
+        #endregion
+
+        #region public properties
+
+        /// <summary>
+        /// The default startup options. These are flags. 
+        /// </summary>
+
+        public static StartupOptions StartupOptions = StartupOptions.LookForExtensions;
+
+        /// <summary>
+        /// Provides access to the PseudoSelectors object, which allows registering new filters and
+        /// accessing information and instances about existing filters.
+        /// </summary>
+        ///
+        /// <value>
+        /// The pseudo PseudoSelectors configuration object.
+        /// </value>
+
+        public static PseudoSelectors PseudoClassFilters
+        {
+            get
+            {
+                return PseudoSelectors.Items;
+            }
+        }
+
+        /// <summary>
+        /// The default rendering options. These will be used when configuring a default OutputFormatter.
+        /// Note that if the default OutputFormatter has been changed, this setting is not guaranteed to
+        /// have any effect on output.
+        /// </summary>
+
+        public static DomRenderingOptions DomRenderingOptions
+        {
+            get
+            {
+                return DefaultConfig.DomRenderingOptions;
+            }
+            set
+            {
+                DefaultConfig.DomRenderingOptions = value;
+            }
+        }
+
+        /// <summary>
+        /// The default HTML parsing options. These will be used when parsing HTML without specifying any options. 
+        /// </summary>
+
+        public static HtmlParsingOptions HtmlParsingOptions
+        {
+            get
+            {
+                return DefaultConfig.HtmlParsingOptions;
+            }
+            set
+            {
+                DefaultConfig.HtmlParsingOptions = value;
+            }
+        }
+
+        /// <summary>
+        /// The default HTML encoder.
+        /// </summary>
+
+        public static IHtmlEncoder HtmlEncoder
+        {
+            get
+            {
+                return DefaultConfig.HtmlEncoder;
+            }
+            set
+            {
+                DefaultConfig.HtmlEncoder = value;
+            }
+        }
+
+
+
+        /// <summary>
+        /// The default OutputFormatter. The GetOutputFormatter property can also be used to provide a
+        /// new instance whenever a default OutputFormatter is requested; setting that property will
+        /// supersede any existing value of this property.
+        /// </summary>
+
+        public static IOutputFormatter OutputFormatter
+        {
+            get
+            {
+                return DefaultConfig.OutputFormatter;
+            }
+            set
+            {
+                DefaultConfig.OutputFormatter = value;
+            }
+        }
+
+        /// <summary>
+        /// A delegate that returns a new instance of the default output formatter to use for rendering.
+        /// The OutputFormatter property can also be used to return a single instance of a reusable
+        /// IOutputFormatter object; setting that property will supersede any existing value of this
+        /// property.
+        /// </summary>
+
+        public static Func<IOutputFormatter> GetOutputFormatter
+        {
+            get
+            {
+                return DefaultConfig.GetOutputFormatter;
+            }
+            set
+            {
+                DefaultConfig.GetOutputFormatter = value;
+            }
+        }
+
+        /// <summary>
+        /// A method that returns a new HttpWebRequest. This is mostly useful for providing an alternate
+        /// implementation for testing.
+        /// </summary>
+
+        public static IHttpWebRequestFactory WebRequestFactory
+        {
+            get
+            {
+                return DefaultConfig.WebRequestFactory;
+            }
+        }
+
+
+        /// <summary>
+        /// Default document type. This is the parsing mode that will be used when creating documents
+        /// that have no DocType and no mode is explicitly defined.
+        /// </summary>
+
+        public static DocType DocType
+        {
+            get
+            {
+                return DefaultConfig.DocType;
+            }
+            set
+            {
+                DefaultConfig.DocType = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the default dynamic object type. This is the type of object used by default when
+        /// parsing JSON into an unspecified type.
+        /// </summary>
+
+        public static Type DynamicObjectType
+        {
+            get
+            {
+                return DefaultConfig.DynamicObjectType;
+            }
+            set
+            {
+                DefaultConfig.DynamicObjectType = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the default DomIndexProvider, which returns an instance of a DomIndex that
+        /// defines the indexing strategy for new documents.
+        /// </summary>
+
+        public static IDomIndexProvider DomIndexProvider
+        {
+            get
+            {
+                return DefaultConfig.DomIndexProvider;
+            }
+            set
+            {
+                DefaultConfig.DomIndexProvider = value;
+            }
+        }
         #endregion
 
     }

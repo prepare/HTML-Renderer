@@ -42,7 +42,7 @@
     <Compile Include="Engine\DomIndexProviders.cs" />
     <Compile Include="Engine\DomIndexRanged.cs" />
     <Compile Include="Engine\DomIndexSimple.cs" />
-    <Compile Include="Engine\enumDomIndexFeatures.cs" />
+    <Compile Include="Engine\DomIndexFeatures.cs" />
     <Compile Include="Helper\DomDocHelper.cs" />
     <Compile Include="HtmlParser\BOMReader.cs" />
     <Compile Include="HtmlParser\CsQueryTreeBuilder.cs" />
@@ -55,6 +55,11 @@
     <Compile Include="Implementation\PathKeyComparer.cs" />
     <Compile Include="Implementation\RangeSortedDictionary.cs" />
     <Compile Include="Implementation\RBTree.cs" />
+    <Compile Include="IndexEngine\IDomIndexProvider.cs" />
+    <Compile Include="IndexEngine\IDomIndexQueue.cs" />
+    <Compile Include="IndexEngine\IDomIndexRanged.cs" />
+    <Compile Include="IndexEngine\IDomIndexSimple.cs" />
+    <Compile Include="IndexEngine\IndexOperation.cs" />
     <Compile Include="Output\HtmlEncoderBase.cs" />
     <Compile Include="Output\HtmlEncoderBasic.cs" />
     <Compile Include="Output\HtmlEncoderFull.cs" />

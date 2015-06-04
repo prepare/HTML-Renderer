@@ -31,7 +31,7 @@ namespace CsQuery.Tests.Examples
             
             string URL = "http://finance.yahoo.com/q/op?s=MSFT&m=2012-09";
 
-            CQ doc = CQ.CreateFromUrl(URL);
+            CQ doc = CQ2.CreateFromUrl(URL);
 
             // the two tables have a class "yfnc_datamodoutline1", but wrap an inner table
 

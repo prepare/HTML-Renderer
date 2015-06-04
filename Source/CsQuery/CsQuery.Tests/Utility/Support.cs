@@ -38,10 +38,10 @@ namespace CsQuery.Tests.Utility
         [Test, TestMethod]
         public void FromCamelCase()
         {
-            Assert.AreEqual("one", Support.FromCamelCase("One"));
-            Assert.AreEqual("one-two", Support.FromCamelCase("OneTwo"));
-            Assert.AreEqual("-one-two", Support.FromCamelCase("-OneTwo"));
-            Assert.AreEqual("one-two--", Support.FromCamelCase("OneTwo--"));
+            Assert.AreEqual("one", Support2.FromCamelCase("One"));
+            Assert.AreEqual("one-two", Support2.FromCamelCase("OneTwo"));
+            Assert.AreEqual("-one-two", Support2.FromCamelCase("-OneTwo"));
+            Assert.AreEqual("one-two--", Support2.FromCamelCase("OneTwo--"));
 
         }
       
