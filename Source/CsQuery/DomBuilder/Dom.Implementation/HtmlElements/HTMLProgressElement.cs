@@ -11,7 +11,7 @@ namespace CsQuery.Implementation
     /// An HTML progress element.
     /// </summary>
 
-    public class HTMLProgressElement : DomElement, IHTMLProgressElement
+    class HTMLProgressElement : DomElement, IHTMLProgressElement
     {
         /// <summary>
         /// Default constructor.
@@ -74,7 +74,7 @@ namespace CsQuery.Implementation
 
                 }
             }
-          
+
         }
 
         /// <summary>
@@ -83,8 +83,9 @@ namespace CsQuery.Implementation
 
         public INodeList<IHTMLLabelElement> Labels
         {
-            get {
-                return new NodeList<IHTMLLabelElement>(ChildElementsOfTag<IHTMLLabelElement>(HtmlData.tagLABEL));
+            get
+            {
+                return new NodeList<IHTMLLabelElement>(DomEExt.ChildElementsOfTag<IHTMLLabelElement>(this, HtmlData.tagLABEL));
             }
         }
     }

@@ -66,8 +66,56 @@ namespace CsQuery.Implementation
             }
         }
 
-
+        public static IDomCData CreateCData(string data)
+        {
+            return new DomCData();
+        }
+        public static IDomComment CreateComment(string content)
+        {
+            return new DomComment(content);
+        }
     }
 
+    public static class DomEExt
+    {
 
+        /// <summary>
+        /// Returns all child elements of a specific tag, cast to a type
+        /// </summary>
+        ///
+        /// <typeparam name="T">
+        /// Generic type parameter.
+        /// </typeparam>
+        /// <param name="nodeNameId">
+        /// Backing field for NodeNameID property.
+        /// </param>
+        ///
+        /// <returns>
+        /// An enumerator.
+        /// </returns>
+
+        public static IEnumerable<T> ChildElementsOfTag<T>(this IDomElement elem, ushort nodeNameId)
+        {
+            return ChildElementsOfTag<T>(elem, nodeNameId);
+        }
+
+        private static IEnumerable<T> ChildElementsOfTag<T>(this IDomElement elem, IDomElement parent, ushort nodeNameId)
+        {
+            foreach (var el in elem.ChildNodes)
+            {
+                if (el.NodeType == NodeType.ELEMENT_NODE &&
+                    el.NodeNameID == nodeNameId)
+                {
+                    yield return (T)el;
+                }
+                if (el.HasChildren)
+                {
+                    foreach (var child in ((DomElement)el).ChildElementsOfTag<T>(nodeNameId))
+                    {
+                        yield return child;
+                    }
+                }
+            }
+        }
+    }
 }

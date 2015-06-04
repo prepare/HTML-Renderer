@@ -7,7 +7,7 @@ namespace CsQuery.Implementation
     /// An HTML text area element.
     /// </summary>
 
-    public class HTMLTextAreaElement : FormSubmittableElement, IHTMLTextAreaElement
+      class HTMLTextAreaElement : FormSubmittableElement, IHTMLTextAreaElement
     {
         /// <summary>
         /// Default constructor.

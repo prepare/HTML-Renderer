@@ -10,7 +10,7 @@ namespace CsQuery.Implementation
     /// A STYLE element
     /// </summary>
 
-    public class HTMLStyleElement : DomElement
+      class HTMLStyleElement : DomElement
     {
         /// <summary>
         /// Default constructor

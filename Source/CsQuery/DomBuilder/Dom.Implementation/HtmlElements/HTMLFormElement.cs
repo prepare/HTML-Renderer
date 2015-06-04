@@ -16,7 +16,7 @@ namespace CsQuery.Implementation
     /// http://dev.w3.org/html5/spec/single-page.html#the-form-element
     /// </url>
 
-    public class HtmlFormElement : DomElement, IHTMLFormElement
+    class HtmlFormElement : DomElement, IHTMLFormElement
     {
         /// <summary>
         /// Default constructor.
@@ -127,7 +127,7 @@ namespace CsQuery.Implementation
         {
             get
             {
-                return GetAttribute("enctype","application/x-www-form-urlencoded");
+                return GetAttribute("enctype", "application/x-www-form-urlencoded");
             }
             set
             {
@@ -172,7 +172,7 @@ namespace CsQuery.Implementation
         {
             get
             {
-                return GetAttribute("method","GET");
+                return GetAttribute("method", "GET");
             }
             set
             {
@@ -196,7 +196,7 @@ namespace CsQuery.Implementation
             }
             set
             {
-                SetProp("novalidate",value);
+                SetProp("novalidate", value);
             }
         }
 
@@ -210,7 +210,8 @@ namespace CsQuery.Implementation
 
         public INodeList<IDomElement> Elements
         {
-            get {
+            get
+            {
                 return new NodeList<IDomElement>(Document.QuerySelectorAll(":input"));
             }
         }

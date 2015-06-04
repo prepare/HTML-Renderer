@@ -10,7 +10,7 @@ namespace CsQuery.Implementation
     /// A list of nodes representing the children of a DOM element.
     /// </summary>
 
-    public class ChildNodeList : INodeList
+    class ChildNodeList : INodeList
     {
 
         #region constructor
@@ -115,17 +115,17 @@ namespace CsQuery.Implementation
         /// <param name="item">
         /// The element to add
         /// </param>
-        
+
         public void Add(IDomObject item)
         {
- 
+
             if (item.ParentNode != null)
             {
                 item.Remove();
             }
 
             // Ensure ID uniqueness - remove ID if same-named object already exists
-            
+
             if (!String.IsNullOrEmpty(item.Id)
                 && !Owner.IsFragment
                 && Owner.Document.GetElementById(item.Id) != null)
@@ -175,7 +175,7 @@ namespace CsQuery.Implementation
 
             // This must come BEFORE AddParent - otherwise the index entry will be present already at this position 
 
-            ReindexFromRight(index); 
+            ReindexFromRight(index);
 
             if (index == InnerList.Count)
             {
@@ -185,7 +185,7 @@ namespace CsQuery.Implementation
             {
                 InnerList.Insert(index, item);
             }
-            
+
 
             AddParent(item, index);
 
@@ -361,7 +361,7 @@ namespace CsQuery.Implementation
                 bool isDisconnected = Owner.IsDisconnected;
 
                 int end = index - 1;
-                for (int i = InnerList.Count-1; i > end; i--)
+                for (int i = InnerList.Count - 1; i > end; i--)
                 {
                     if (!isDisconnected && InnerList[i].IsIndexed)
                     {
@@ -376,13 +376,13 @@ namespace CsQuery.Implementation
                     else
                     {
                         // this should run for disconnected nodes & for n
-                        ((DomObject)InnerList[i]).Index = i+1;
+                        ((DomObject)InnerList[i]).Index = i + 1;
                     }
                 }
             }
         }
 
-        
+
         #endregion
 
         #region ICollection<IDomObject> Members
@@ -433,7 +433,7 @@ namespace CsQuery.Implementation
 
         public bool Contains(IDomObject item)
         {
-            return _InnerList==null ? false : InnerList.Contains(item);
+            return _InnerList == null ? false : InnerList.Contains(item);
         }
 
         /// <summary>
@@ -449,7 +449,7 @@ namespace CsQuery.Implementation
 
         public void CopyTo(IDomObject[] array, int arrayIndex)
         {
-            InnerList.CopyTo(array,arrayIndex);
+            InnerList.CopyTo(array, arrayIndex);
         }
 
         /// <summary>
@@ -458,7 +458,7 @@ namespace CsQuery.Implementation
 
         public int Count
         {
-            get { return _InnerList==null ? 0 : InnerList.Count; }
+            get { return _InnerList == null ? 0 : InnerList.Count; }
         }
 
         /// <summary>

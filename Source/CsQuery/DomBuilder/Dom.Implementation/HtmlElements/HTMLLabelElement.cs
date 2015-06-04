@@ -2,7 +2,7 @@
 using CsQuery.HtmlParser;
 
 namespace CsQuery.Implementation
-{   
+{
     /// <summary>
     /// A LABEL element.
     /// </summary>
@@ -11,7 +11,7 @@ namespace CsQuery.Implementation
     /// http://dev.w3.org/html5/spec/single-page.html#the-label-element
     /// </url>
 
-    public class HTMLLabelElement : FormAssociatedElement, IHTMLLabelElement
+    class HTMLLabelElement : FormAssociatedElement, IHTMLLabelElement
     {
         /// <summary>
         /// Default constructor.
@@ -26,14 +26,15 @@ namespace CsQuery.Implementation
         /// Gets or sets the for attribute
         /// </summary>
 
-        public string HtmlFor 
+        public string HtmlFor
         {
             get
             {
-                return GetAttribute("for");   
+                return GetAttribute("for");
             }
-            set{
-                SetAttribute("for",value);
+            set
+            {
+                SetAttribute("for", value);
             }
         }
 
@@ -42,7 +43,8 @@ namespace CsQuery.Implementation
         /// ID. If not, the first input control that is a child of the label will be returned.
         /// </summary>
 
-        public IDomElement Control {
+        public IDomElement Control
+        {
             get
             {
                 var id = HtmlFor;

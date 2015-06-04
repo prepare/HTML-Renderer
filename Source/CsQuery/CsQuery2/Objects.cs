@@ -1569,7 +1569,7 @@ namespace CsQuery
                             {
                                 continue;
                             }
-                            propInfo.GetSetMethod().Invoke(target,new object[] {value});
+                            propInfo.GetSetMethod().Invoke(target, new object[] { value });
 
                         }
                         else if (member is FieldInfo)
@@ -1763,7 +1763,7 @@ namespace CsQuery
 
         public static IDomComment CreateComment(string comment)
         {
-            return new Implementation.DomComment(comment);
+            return Implementation.DomE.CreateComment(comment);             
         }
 
         /// <summary>
@@ -1793,7 +1793,7 @@ namespace CsQuery
 
         public static IDomCData CreateCData(string data)
         {
-            return new Implementation.DomCData();
+            return Implementation.DomE.CreateCData(data);
         }
 
         /// <summary>

@@ -9,7 +9,7 @@ namespace CsQuery.Implementation
     /// A CDATA node
     /// </summary>
 
-    public class DomCData : DomObject<DomCData>, IDomCData
+    class DomCData : DomObject<DomCData>, IDomCData
     {
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace CsQuery.Implementation
         }
         #endregion
 
-      
+
     }
-    
+
 }

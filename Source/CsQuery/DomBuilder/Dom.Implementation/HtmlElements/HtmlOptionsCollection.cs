@@ -17,7 +17,7 @@ namespace CsQuery.Implementation
     /// https://developer.mozilla.org/en/DOM/HTMLOptionsCollection
     /// </url>
 
-    public class HTMLOptionsCollection : IHTMLOptionsCollection
+    class HTMLOptionsCollection : IHTMLOptionsCollection
     {
         #region constructor
 
@@ -177,7 +177,7 @@ namespace CsQuery.Implementation
             }
             set
             {
-                
+
                 int i = 0;
                 foreach (var item in this.Children())
                 {
@@ -223,7 +223,7 @@ namespace CsQuery.Implementation
             }
             set
             {
-                
+
                 foreach (var item in this.Children())
                 {
                     if (item == value)
@@ -251,7 +251,7 @@ namespace CsQuery.Implementation
 
         public IEnumerator<IDomObject> GetEnumerator()
         {
-            
+
             return Children().GetEnumerator();
         }
 

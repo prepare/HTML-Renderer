@@ -11,7 +11,7 @@ namespace CsQuery.Implementation
     /// An HTML LI element.
     /// </summary>
 
-    public class HTMLLIElement : DomElement, IHTMLLIElement
+    class HTMLLIElement : DomElement, IHTMLLIElement
     {
         /// <summary>
         /// Default constructor.
@@ -38,8 +38,8 @@ namespace CsQuery.Implementation
             }
         }
 
-    
 
-       
+
+
     }
 }

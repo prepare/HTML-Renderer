@@ -10,19 +10,19 @@ namespace CsQuery.Implementation
     /// A SCRIPT
     /// </summary>
 
-    public class HTMLScriptElement : DomElement
+    class HTMLScriptElement : DomElement
     {
         /// <summary>
         /// Default constructor
         /// </summary>
 
 
-            public HTMLScriptElement()
-                : base(HtmlData.tagSCRIPT)
-            {
+        public HTMLScriptElement()
+            : base(HtmlData.tagSCRIPT)
+        {
 
-            }
-        
+        }
+
 
     }
 }

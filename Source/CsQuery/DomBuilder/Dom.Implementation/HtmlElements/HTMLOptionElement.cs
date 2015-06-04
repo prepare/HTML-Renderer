@@ -10,7 +10,7 @@ namespace CsQuery.Implementation
     /// An HTML option element.
     /// </summary>
 
-    public class HTMLOptionElement : DomElement, IHTMLOptionElement
+    class HTMLOptionElement : DomElement, IHTMLOptionElement
     {
         /// <summary>
         /// Default constructor.
@@ -46,9 +46,12 @@ namespace CsQuery.Implementation
         {
             get
             {
-                if (HasAttribute(HtmlData.attrDISABLED)) {
+                if (HasAttribute(HtmlData.attrDISABLED))
+                {
                     return true;
-                } else {
+                }
+                else
+                {
                     if (ParentNode.NodeNameID == HtmlData.tagOPTION || ParentNode.NodeNameID == HtmlData.tagOPTGROUP)
                     {
                         var disabled = ((DomElement)ParentNode).HasAttribute(HtmlData.attrDISABLED);
@@ -59,7 +62,7 @@ namespace CsQuery.Implementation
                         else
                         {
                             return ParentNode.ParentNode.NodeNameID == HtmlData.tagOPTGROUP &&
-                                ((DomElement)ParentNode.ParentNode).HasAttribute(HtmlData.attrDISABLED);                   
+                                ((DomElement)ParentNode.ParentNode).HasAttribute(HtmlData.attrDISABLED);
                         }
                     }
                     else
@@ -104,7 +107,7 @@ namespace CsQuery.Implementation
             }
             set
             {
-                SetAttribute(HtmlData.tagLABEL,value);
+                SetAttribute(HtmlData.tagLABEL, value);
             }
         }
         /// <summary>

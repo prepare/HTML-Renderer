@@ -11,7 +11,7 @@ namespace CsQuery.Implementation
     /// An HTML progress element.
     /// </summary>
 
-    public class HTMLMeterElement : DomElement, IHTMLMeterElement
+    class HTMLMeterElement : DomElement, IHTMLMeterElement
     {
         /// <summary>
         /// Default constructor.
@@ -116,7 +116,7 @@ namespace CsQuery.Implementation
                 SetAttribute("optimum", value.ToString());
             }
         }
-       
+
 
         /// <summary>
         /// A NodeList of all LABEL elements within this Progress element
@@ -124,12 +124,13 @@ namespace CsQuery.Implementation
 
         public INodeList<IDomElement> Labels
         {
-            get {
-                return new NodeList<IDomElement>(ChildElementsOfTag<IDomElement>(HtmlData.tagLABEL));
+            get
+            {
+                return new NodeList<IDomElement>(DomEExt.ChildElementsOfTag<IDomElement>(this, HtmlData.tagLABEL));
             }
         }
 
 
-     
+
     }
 }

@@ -2011,44 +2011,6 @@ namespace CsQuery.Implementation
         }
 
 
-        /// <summary>
-        /// Returns all child elements of a specific tag, cast to a type
-        /// </summary>
-        ///
-        /// <typeparam name="T">
-        /// Generic type parameter.
-        /// </typeparam>
-        /// <param name="nodeNameId">
-        /// Backing field for NodeNameID property.
-        /// </param>
-        ///
-        /// <returns>
-        /// An enumerator.
-        /// </returns>
-
-        public IEnumerable<T> ChildElementsOfTag<T>(ushort nodeNameId)
-        {
-            return ChildElementsOfTag<T>(this, nodeNameId);
-        }
-
-        private IEnumerable<T> ChildElementsOfTag<T>(IDomElement parent, ushort nodeNameId)
-        {
-            foreach (var el in ChildNodes)
-            {
-                if (el.NodeType == NodeType.ELEMENT_NODE &&
-                    el.NodeNameID == nodeNameId)
-                {
-                    yield return (T)el;
-                }
-                if (el.HasChildren)
-                {
-                    foreach (var child in ((DomElement)el).ChildElementsOfTag<T>(nodeNameId))
-                    {
-                        yield return child;
-                    }
-                }
-            }
-        }
         #endregion
 
         #region explicit members for IAttributesCollection

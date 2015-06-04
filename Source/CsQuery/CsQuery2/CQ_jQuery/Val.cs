@@ -56,7 +56,7 @@ namespace CsQuery
         /// <url>
         /// http://api.jquery.com/val/#val1
         /// </url>
-        
+
         public T ValOrDefault<T>()
         {
             string val = Val();
@@ -113,8 +113,8 @@ namespace CsQuery
                         return val;
                     case HtmlData.tagSELECT:
                         string result = String.Empty;
-                      
-                        var sel = (HTMLSelectElement)e;
+
+                        var sel = (IHTMLSelectElement)e;
 
                         if (!sel.Multiple)
                         {
@@ -122,13 +122,14 @@ namespace CsQuery
                         }
                         else
                         {
-                            var selList = sel.ChildElementsOfTag<IHTMLOptionElement>(HtmlData.tagOPTION);
+                             
+                            var selList = ((IDomElement)sel).ChildElementsOfTag<IHTMLOptionElement>(HtmlData.tagOPTION);
                             result = String.Join(",", selList
                                 .Where(item => item.HasAttribute("selected") && !item.Disabled)
                                 .Select(item => item.Value ?? item.TextContent));
                             return result;
                         }
-                        
+
                     case HtmlData.tagOPTION:
                         val = e.GetAttribute("value");
                         return val ?? e.TextContent;
@@ -224,10 +225,10 @@ namespace CsQuery
         protected string GetValueString(object value)
         {
             return value == null ? null :
-                (value is string ? 
+                (value is string ?
                     (string)value :
                     (value is IEnumerable ?
-                        Objects.Join((IEnumerable)value) : 
+                        Objects.Join((IEnumerable)value) :
                         value.ToString()
                     )
                 );

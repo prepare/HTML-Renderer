@@ -7,7 +7,7 @@ using System.IO;
 
 namespace CsQuery.Implementation
 {
-    
+
 
     /// <summary>
     /// Base class for Dom object that contain other elements
@@ -20,7 +20,7 @@ namespace CsQuery.Implementation
 
         public DomContainer()
         {
-            
+
         }
 
         /// <summary>
@@ -31,7 +31,8 @@ namespace CsQuery.Implementation
         /// The elements.
         /// </param>
 
-        public DomContainer(IEnumerable<IDomObject> elements): base()
+        public DomContainer(IEnumerable<IDomObject> elements)
+            : base()
         {
             ChildNodesInternal.AddRange(elements);
         }
@@ -52,7 +53,7 @@ namespace CsQuery.Implementation
         /// The child nodes as a concete object.
         /// </summary>
 
-        protected ChildNodeList ChildNodesInternal
+        internal ChildNodeList ChildNodesInternal
         {
             get
             {
@@ -116,7 +117,7 @@ namespace CsQuery.Implementation
             {
                 if (HasChildren)
                 {
-                    int index=0;
+                    int index = 0;
                     while (index < ChildNodes.Count && ChildNodes[index].NodeType != NodeType.ELEMENT_NODE)
                     {
                         index++;
@@ -162,12 +163,12 @@ namespace CsQuery.Implementation
             {
                 if (HasChildren)
                 {
-                    int index = ChildNodes.Count-1;
-                    while (index >=0 && ChildNodes[index].NodeType != NodeType.ELEMENT_NODE)
+                    int index = ChildNodes.Count - 1;
+                    while (index >= 0 && ChildNodes[index].NodeType != NodeType.ELEMENT_NODE)
                     {
                         index--;
                     }
-                    if (index >=0)
+                    if (index >= 0)
                     {
                         return (IDomElement)ChildNodes[index];
                     }
@@ -200,7 +201,7 @@ namespace CsQuery.Implementation
 
         public override void AppendChildUnsafe(IDomObject item)
         {
-         
+
             ChildNodesInternal.AddAlways(item);
         }
 

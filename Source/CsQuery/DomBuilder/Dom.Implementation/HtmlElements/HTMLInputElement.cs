@@ -7,7 +7,7 @@ namespace CsQuery.Implementation
     /// An HTML input element.
     /// </summary>
 
-    public class HTMLInputElement : FormSubmittableElement, IHTMLInputElement
+    class HTMLInputElement : FormSubmittableElement, IHTMLInputElement
     {
         /// <summary>
         /// Default constructor.

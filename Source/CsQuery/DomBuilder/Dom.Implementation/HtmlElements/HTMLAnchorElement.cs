@@ -14,7 +14,7 @@ namespace CsQuery.Implementation
     /// <url>
     /// http://dev.w3.org/html5/spec/single-page.html#the-a-element
     /// </url>
-    public class HtmlAnchorElement : DomElement, IHTMLAnchorElement
+    class HtmlAnchorElement : DomElement, IHTMLAnchorElement
     {
         /// <summary>
         /// Default constructor.

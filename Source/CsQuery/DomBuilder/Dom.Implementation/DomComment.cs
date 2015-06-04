@@ -9,7 +9,7 @@ namespace CsQuery.Implementation
     /// A comment node
     /// </summary>
 
-    public class DomComment : DomObject<DomComment>, IDomComment
+    class DomComment : DomObject<DomComment>, IDomComment
     {
         #region constructors
 
@@ -31,7 +31,8 @@ namespace CsQuery.Implementation
         /// The text.
         /// </param>
 
-        public DomComment(string text): base()
+        public DomComment(string text)
+            : base()
         {
             NodeValue = text;
         }
