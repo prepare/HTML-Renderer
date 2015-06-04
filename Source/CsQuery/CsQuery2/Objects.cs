@@ -1746,7 +1746,7 @@ namespace CsQuery
 
         public static IDomText CreateTextNode(string text)
         {
-            return new Implementation.DomText(text);
+            return Implementation.DomE.CreateTextNode(text);
         }
 
         /// <summary>
@@ -1763,7 +1763,7 @@ namespace CsQuery
 
         public static IDomComment CreateComment(string comment)
         {
-            return Implementation.DomE.CreateComment(comment);             
+            return Implementation.DomE.CreateComment(comment);
         }
 
         /// <summary>
@@ -1806,7 +1806,7 @@ namespace CsQuery
 
         public static IDomFragment CreateFragment()
         {
-            return new Implementation.DomFragment();
+            return Implementation.DomE.CreateDomFragment();
         }
 
 

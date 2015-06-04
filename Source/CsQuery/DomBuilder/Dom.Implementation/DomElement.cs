@@ -16,7 +16,7 @@ namespace CsQuery.Implementation
     /// </summary>
 
     public class DomElement : DomContainer<DomElement>, IDomElement, IDomObject, IDomNode,
-        IAttributeCollection
+       IAttributeCollection
     {
 
         #region private fields
@@ -74,7 +74,7 @@ namespace CsQuery.Implementation
         /// Gets the dom attributes.
         /// </summary>
 
-        protected AttributeCollection InnerAttributes
+        internal AttributeCollection InnerAttributes
         {
             get
             {

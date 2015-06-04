@@ -10,7 +10,7 @@ namespace CsQuery.Implementation
     /// <url>
     /// http://www.w3.org/html/wg/drafts/html/master/forms.html#category-submit
     /// </url>
-    public class FormSubmittableElement : FormReassociateableElement, IFormSubmittableElement
+    class FormSubmittableElement : FormReassociateableElement, IFormSubmittableElement
     {
         /// <summary>
         /// Constructor to specify the element's token ID.

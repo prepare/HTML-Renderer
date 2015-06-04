@@ -10,7 +10,7 @@ namespace CsQuery.Implementation
     /// A STYLE element
     /// </summary>
 
-      class HTMLStyleElement : DomElement
+    class HTMLStyleElement : DomElement
     {
         /// <summary>
         /// Default constructor
@@ -18,11 +18,11 @@ namespace CsQuery.Implementation
 
 
         public HTMLStyleElement()
-                : base(HtmlData.tagSTYLE)
-            {
+            : base(HtmlData.tagSTYLE)
+        {
 
-            }
-        
+        }
+
 
     }
 }

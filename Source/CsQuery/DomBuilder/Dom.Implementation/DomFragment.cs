@@ -12,9 +12,9 @@ namespace CsQuery.Implementation
     /// <summary>
     /// An incomplete document fragment
     /// </summary>
-    public class DomFragment : DomDocument, IDomFragment
+    class DomFragment : DomDocument, IDomFragment
     {
-        
+
 
         /// <summary>
         /// Default constructor.
@@ -36,7 +36,7 @@ namespace CsQuery.Implementation
         public DomFragment(IDomIndex domIndex)
             : base(domIndex)
         {
-            
+
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace CsQuery.Implementation
 
         public override NodeType NodeType
         {
-            get { return  NodeType.DOCUMENT_FRAGMENT_NODE; }
+            get { return NodeType.DOCUMENT_FRAGMENT_NODE; }
         }
 
         /// <summary>
@@ -86,5 +86,5 @@ namespace CsQuery.Implementation
             return CreateNew<IDomFragment>();
         }
     }
-    
+
 }

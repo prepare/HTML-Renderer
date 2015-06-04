@@ -16,7 +16,7 @@ namespace CsQuery.Implementation
     /// Generic type parameter.
     /// </typeparam>
 
-    public class NodeList<T>: INodeList<T> where T: IDomObject
+    class NodeList<T> : INodeList<T> where T : IDomObject
     {
         #region constructor
 

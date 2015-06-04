@@ -14,7 +14,7 @@ namespace CsQuery.Implementation
     /// <url>
     /// http://www.w3.org/html/wg/drafts/html/master/forms.html#categories
     /// </url>
-    public abstract class FormReassociateableElement : DomElement, IFormReassociateableElement
+    abstract class FormReassociateableElement : DomElement, IFormReassociateableElement
     {
         /// <summary>
         /// Constructor to specify the element's token ID.

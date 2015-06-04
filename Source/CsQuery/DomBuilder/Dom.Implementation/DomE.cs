@@ -74,6 +74,14 @@ namespace CsQuery.Implementation
         {
             return new DomComment(content);
         }
+        public static IDomText CreateTextNode(string text)
+        {
+            return new DomText(text);
+        }
+        public static IDomFragment CreateDomFragment()
+        {
+            return new Implementation.DomFragment();
+        }
     }
 
     public static class DomEExt

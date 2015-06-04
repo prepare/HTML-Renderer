@@ -14,7 +14,7 @@ namespace CsQuery.Implementation
     /// A collection of attributes.
     /// </summary>
 
-    public class AttributeCollection : IDictionary<string, string>, IEnumerable<KeyValuePair<string, string>>
+    class AttributeCollection : IDictionary<string, string>, IEnumerable<KeyValuePair<string, string>>
     {
         #region constructors
 
@@ -353,7 +353,7 @@ namespace CsQuery.Implementation
         #region private methods
 
         private string Get(string name)
-        {    
+        {
             name = name.CleanUp();
             if (string.IsNullOrEmpty(name))
             {
@@ -384,7 +384,7 @@ namespace CsQuery.Implementation
         /// <param name="value"></param>
         private void Set(string name, string value)
         {
-           
+
             if (String.IsNullOrEmpty(name))
             {
                 throw new ArgumentException("Cannot set an attribute with no name.");

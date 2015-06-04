@@ -25,7 +25,7 @@ namespace CsQuery.Implementation
     /// Creates a single virtual stream out of multiple input streams.
     /// </summary>
 
-    public class CombinedStream : BaseStream
+    class CombinedStream : BaseStream
     {
         bool _valid;
         readonly IEnumerator<Stream> _streams;
@@ -38,8 +38,8 @@ namespace CsQuery.Implementation
         /// The streams.
         /// </param>
 
-        public CombinedStream(params Stream[] streams) : 
-            this((IEnumerable<Stream>)streams) 
+        public CombinedStream(params Stream[] streams) :
+            this((IEnumerable<Stream>)streams)
         { }
 
         /// <summary>
@@ -60,10 +60,12 @@ namespace CsQuery.Implementation
         /// Gets a value indicating whether we can read.
         /// </summary>
 
-        public override bool CanRead { 
-            get {
-                return _valid && _streams.Current.CanRead; 
-            } 
+        public override bool CanRead
+        {
+            get
+            {
+                return _valid && _streams.Current.CanRead;
+            }
         }
         /// <summary> Reads from the next stream available </summary>
         public override int Read(byte[] buffer, int offset, int count)

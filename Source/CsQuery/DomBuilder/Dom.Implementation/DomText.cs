@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using System.Text; 
+using System.Text;
 using System.IO;
-using CsQuery.HtmlParser; 
+using CsQuery.HtmlParser;
 
 namespace CsQuery.Implementation
 {
     /// <summary>
     /// Used for literal text (not part of a tag)
     /// </summary>
-    public class DomText : DomObject<DomText>, IDomText
+    class DomText : DomObject<DomText>, IDomText
     {
         /// <summary>
         /// Create a new empty Text node
@@ -19,7 +19,7 @@ namespace CsQuery.Implementation
         public DomText()
             : base()
         {
-            
+
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace CsQuery.Implementation
         /// </summary>
 
         protected string _NodeValue;
-       
+
 
         /// <summary>
         /// The node (tag) name, in upper case. For Text nodes, this is always "#text".
@@ -79,7 +79,7 @@ namespace CsQuery.Implementation
             }
             set
             {
-                _NodeValue=value;
+                _NodeValue = value;
             }
         }
 

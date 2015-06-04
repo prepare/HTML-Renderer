@@ -284,7 +284,7 @@ namespace CsQuery
 
         protected void CreateNewFragment()
         {
-            Document = new DomFragment();
+            Document = Implementation.DomE.CreateDomFragment();
         }
 
         /// <summary>
