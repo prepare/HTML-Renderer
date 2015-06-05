@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using System.Text;
- 
+
 
 namespace CsQuery.Implementation
 {
@@ -11,7 +11,7 @@ namespace CsQuery.Implementation
     /// A special type for the DOCTYPE node
     /// </summary>
 
-    public class DomDocumentType : DomObject<DomDocumentType>, IDomDocumentType
+    class DomDocumentType : DomObject<DomDocumentType>, IDomDocumentType
     {
 
         #region constructors
@@ -71,7 +71,7 @@ namespace CsQuery.Implementation
         //        @"^\s*([a-zA-Z0-9]+)\s+[a-zA-Z]+(\s+""(.*?)"")*\s*$", 
         //    RegexOptions.IgnoreCase);
         private string DocTypeName { get; set; }
-        private string Access {get; set;}
+        private string Access { get; set; }
         private string FPI { get; set; }
         private string URI { get; set; }
 
@@ -131,7 +131,7 @@ namespace CsQuery.Implementation
             get
             {
                 return DocTypeName +
-                    (!String.IsNullOrEmpty(Access) ? " "+Access  : "") +
+                    (!String.IsNullOrEmpty(Access) ? " " + Access : "") +
                     (!String.IsNullOrEmpty(FPI) ? " \"" + FPI + "\"" : "") +
                     (!String.IsNullOrEmpty(URI) ? " \"" + URI + "\"" : "");
 
@@ -159,7 +159,7 @@ namespace CsQuery.Implementation
                 //        }
                 //    }
                 //}
-              
+
                 //SetDocType(docTypeName,access,fpi,uri);
             }
         }
@@ -176,7 +176,7 @@ namespace CsQuery.Implementation
                 DocType = DocType.Unknown;
                 return;
             }
-            if (fpi == "" && uri=="")
+            if (fpi == "" && uri == "")
             {
                 Access = "";
                 DocType = DocType.HTML5;
@@ -224,30 +224,30 @@ namespace CsQuery.Implementation
                 case DocType.HTML5:
                     DocTypeName = "html";
                     Access = null;
-                    FPI= null;
+                    FPI = null;
                     URI = null;
                     break;
                 case DocType.XHTML:
                     DocTypeName = "html";
-                    Access= "PUBLIC";
-                    FPI="-//W3C//DTD XHTML 1.0 Frameset//EN" ;
-                    URI="http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd" ;
+                    Access = "PUBLIC";
+                    FPI = "-//W3C//DTD XHTML 1.0 Frameset//EN";
+                    URI = "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd";
                     break;
                 case DocType.HTML4:
                     DocTypeName = "html";
                     Access = "PUBLIC";
-                    FPI="-//W3C//DTD HTML 4.01 Frameset//EN";
-                    URI="http://www.w3.org/TR/html4/frameset.dtd";
+                    FPI = "-//W3C//DTD HTML 4.01 Frameset//EN";
+                    URI = "http://www.w3.org/TR/html4/frameset.dtd";
                     break;
                 case DocType.HTML4Strict:
-                    DocTypeName="html";
-                    Access="PUBLIC";
-                    FPI="-//W3C//DTD HTML 4.01//EN" ;
-                    URI="http://www.w3.org/TR/html4/strict.dtd";
+                    DocTypeName = "html";
+                    Access = "PUBLIC";
+                    FPI = "-//W3C//DTD HTML 4.01//EN";
+                    URI = "http://www.w3.org/TR/html4/strict.dtd";
                     break;
                 case DocType.XHTMLStrict:
                     DocTypeName = "html";
-                    Access= "PUBLIC";
+                    Access = "PUBLIC";
                     FPI = "-//W3C//DTD XHTML 1.0 Strict//EN";
                     URI = "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd";
                     break;
@@ -294,7 +294,7 @@ namespace CsQuery.Implementation
             clone.FPI = FPI;
             clone.Access = Access;
             clone.URI = URI;
-            
+
             clone.DocTypeName = DocTypeName;
             clone.DocType = DocType;
             return clone;

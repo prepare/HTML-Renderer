@@ -1324,7 +1324,7 @@ namespace CsQuery.Implementation
             value = null;
             return false;
         }
-
+         
         /// <summary>
         /// Returns a boolean value indicating whether the specified element has the specified attribute
         /// or not.

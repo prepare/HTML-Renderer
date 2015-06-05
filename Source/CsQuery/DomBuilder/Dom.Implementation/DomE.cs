@@ -25,7 +25,7 @@ namespace CsQuery.Implementation
         /// A new element that inherits DomElement
         /// </returns>
 
-        public static DomElement Create(string nodeName)
+        public static IDomElement Create(string nodeName)
         {
             return Create(HtmlData.Tokenize(nodeName));
         }

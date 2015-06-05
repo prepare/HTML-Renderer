@@ -14,7 +14,7 @@ namespace CsQuery.Implementation
     /// <url>
     /// http://www.w3.org/html/wg/drafts/html/master/forms.html#form-associated-element
     /// </url>
-      abstract class FormAssociatedElement : DomElement, IFormAssociatedElement
+    abstract class FormAssociatedElement : DomElement, IFormAssociatedElement
     {
         /// <summary>
         /// Constructor to specify the element's token ID.

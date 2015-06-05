@@ -52,7 +52,7 @@ namespace CsQuery
             CQ htmlElements = EnsureCsQuery(MergeContent(html));
             bool first = true;
 
-            foreach (DomElement obj in OnlyElements(SelectionSet))
+            foreach (var obj in OnlyElements(SelectionSet))
             {
                 if (obj.InnerHtmlAllowed)
                 {

@@ -13,10 +13,8 @@ namespace CsQuery.Implementation
 
     /// <summary>
     /// HTML elements.
-    /// </summary>
-
-    public class DomElement : DomContainer<DomElement>, IDomElement, IDomObject, IDomNode,
-       IAttributeCollection
+    /// </summary> 
+    class DomElement : DomContainer<DomElement>, IDomElement, IDomObject, IDomNode, IAttributeCollection
     {
 
         #region private fields
@@ -1950,10 +1948,10 @@ namespace CsQuery.Implementation
         /// The attribute for matching.
         /// </returns>
 
-        public virtual bool TryGetAttributeForMatching(ushort attributeId, out string value)
-        {
-            return TryGetAttribute(attributeId, out value);
-        }
+        //public virtual bool TryGetAttributeForMatching(ushort attributeId, out string value)
+        //{
+        //    return TryGetAttribute(attributeId, out value);
+        //}
 
         /// <summary>
         /// Return the first ancestor of the specified tag

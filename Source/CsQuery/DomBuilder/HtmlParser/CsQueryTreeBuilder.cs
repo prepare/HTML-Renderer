@@ -189,7 +189,7 @@ namespace CsQuery.HtmlParser
         override protected DomObject CreateElement(string ns, string name, HtmlAttributes attributes)
         {
             // ns is not used
-            DomElement rv = DomE.Create(name);
+            IDomElement rv = DomE.Create(name);
             for (int i = 0; i < attributes.Length; i++)
             {
 
@@ -200,7 +200,7 @@ namespace CsQuery.HtmlParser
                 //rv.setIdAttributeNS(null, attributes.GetLocalName(i), true); // FIXME
                 //}
             }
-            return rv;
+            return (DomObject)rv;
         }
 
         /// <summary>
@@ -219,14 +219,14 @@ namespace CsQuery.HtmlParser
         {
             if (!isFragment)
             {
-                DomElement rv = DomE.Create("html");
+                IDomElement rv = DomE.Create("html");
                 for (int i = 0; i < attributes.Length; i++)
                 {
                     string attributeName = AttributeName(attributes.GetLocalName(i), attributes.GetURI(i));
                     rv.SetAttribute(attributeName, attributes.GetValue(i));
                 }
                 Document.AppendChildUnsafe(rv);
-                return rv;
+                return (DomObject)rv;
             }
             else
             {

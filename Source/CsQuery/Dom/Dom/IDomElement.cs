@@ -1,10 +1,10 @@
-﻿ 
+﻿
 namespace CsQuery
-{   
+{
     /// <summary>
     /// A regular DOM element
     /// </summary>
-    
+
     public interface IDomElement : IDomContainer, IDomIndexedNode
     {
         /// <summary>
@@ -20,7 +20,7 @@ namespace CsQuery
         /// <returns>
         /// A string of HTML.
         /// </returns>
-        
+
         string ElementHtml();
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace CsQuery
         /// element node types)
         /// </summary>
 
-        int ElementIndex { get; } 
-
+        int ElementIndex { get; }
+        bool TryGetAttribute(ushort tokenId, out string value);
     }
 }
