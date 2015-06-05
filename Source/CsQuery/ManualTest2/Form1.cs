@@ -28,7 +28,7 @@ namespace ManualTest2
         {
             using (Stream s = new MemoryStream(Encoding.UTF8.GetBytes(htmlFragment.ToCharArray())))
             {
-                var domdoc = ElementFactory.Create(s,
+                var domdoc = CsQuery.Implementation.DomE.Create(s,
                       Encoding.UTF8,
                       CsQuery.HtmlParsingMode.Fragment,
                       CsQuery.HtmlParsingOptions.Default,
@@ -78,7 +78,7 @@ namespace ManualTest2
              
             using (Stream s = new MemoryStream(Encoding.UTF8.GetBytes(htmlFragment.ToCharArray())))
             {
-                var domdoc = ElementFactory.Create(s,
+                var domdoc = CsQuery.Implementation.DomE.Create(s,
                       Encoding.UTF8,
                       CsQuery.HtmlParsingMode.Document,
                       CsQuery.HtmlParsingOptions.Default,
@@ -87,9 +87,7 @@ namespace ManualTest2
                 foreach (var childNode in domdoc.ChildNodes)
                 {
                     var testInnerText = childNode.InnerText;
-                }
-
-
+                } 
                 this.treeView1.Nodes.Clear();
 
                 var treeNode = new TreeNode("root");

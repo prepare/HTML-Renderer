@@ -12,7 +12,7 @@ namespace CsQuery.HtmlParser
     /// A class to parse and expose information about the byte order marks (BOM) for a stream.
     /// </summary>
 
-    public class BOMReader
+      class BOMReader
     {
         /// <summary>
         /// Default constructor.

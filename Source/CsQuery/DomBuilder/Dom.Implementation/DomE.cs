@@ -83,7 +83,7 @@ namespace CsQuery.Implementation
             return new Implementation.DomFragment();
         }
 
-      
+
         public static IDomDocument CreateNewDoc()
         {
             return new Implementation.DomDocument();
@@ -197,7 +197,7 @@ namespace CsQuery.Implementation
             {
                 return factory.Parse(stream, encoding);
             }
-        }
+        } 
     }
 
     public static class DomEExt

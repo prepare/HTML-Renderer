@@ -18,7 +18,7 @@ namespace CsQuery.HtmlParser
     /// Element factory to build a CsQuery DOM using HtmlParserSharp.
     /// </summary>
 
-    public class ElementFactory
+    class ElementFactory
     {
         #region constructors
 
