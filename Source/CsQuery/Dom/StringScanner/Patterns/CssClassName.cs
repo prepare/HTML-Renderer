@@ -10,7 +10,7 @@ namespace CsQuery.StringScanner.Patterns
     /// A pattern that matches a valid CSS class name
     /// </summary>
 
-    public class CssClassName: EscapedString
+      class CssClassName: EscapedString
     {
         /// <summary>
         /// Default constructor.

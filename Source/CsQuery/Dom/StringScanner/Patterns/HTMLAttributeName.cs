@@ -10,13 +10,13 @@ namespace CsQuery.StringScanner.Patterns
     /// A pattern that matches a valid HTML attribute name.
     /// </summary>
 
-    public class HTMLAttributeName: EscapedString
+    class HTMLAttributeName : EscapedString
     {
         /// <summary>
         /// Default constructor.
         /// </summary>
 
-        public HTMLAttributeName() : 
+        public HTMLAttributeName() :
             base(IsValidAttributeName)
         {
 
@@ -29,14 +29,14 @@ namespace CsQuery.StringScanner.Patterns
         /// <returns></returns>
         protected static bool IsValidAttributeName(int index, char character)
         {
-            
-             if (index == 0)
+
+            if (index == 0)
             {
                 return CharacterData.IsType(character, CharacterType.Alpha);
             }
             else
             {
-                return CharacterData.IsType(character,CharacterType.HtmlAttributeName);
+                return CharacterData.IsType(character, CharacterType.HtmlAttributeName);
             }
         }
     }

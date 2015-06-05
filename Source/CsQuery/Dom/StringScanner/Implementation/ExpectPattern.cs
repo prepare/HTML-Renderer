@@ -9,7 +9,7 @@ namespace CsQuery.StringScanner.Implementation
     /// Abstract base class for IExpectPattern. This implements some helper functions that are commonly used by patterns.
     /// </summary>
 
-    public abstract class ExpectPattern: IExpectPattern 
+    public abstract class ExpectPattern : IExpectPattern
     {
         /// <summary>
         /// ICharacterInfo wrapper arond the current character. This class provides methods to test a
@@ -66,9 +66,11 @@ namespace CsQuery.StringScanner.Implementation
         {
             if (EndIndex > StartIndex)
             {
-                Result = GetOuput(StartIndex,EndIndex, false);
+                Result = GetOuput(StartIndex, EndIndex, false);
                 return true;
-            } else {
+            }
+            else
+            {
                 Result = "";
                 return false;
             }
@@ -191,10 +193,11 @@ namespace CsQuery.StringScanner.Implementation
         {
             bool quoted = false;
 
-            char quoteChar=(char)0;
+            char quoteChar = (char)0;
             StringBuilder sb = new StringBuilder();
-            int index=startIndex;
-            if (endIndex <= index) {
+            int index = startIndex;
+            if (endIndex <= index)
+            {
                 return "";
             }
             if (stripQuotes && CharacterData.IsType(Source[index], CharacterType.Quote))
@@ -204,7 +207,7 @@ namespace CsQuery.StringScanner.Implementation
                 index++;
                 endIndex--;
             }
-            while (index<endIndex)
+            while (index < endIndex)
             {
                 char current = Source[index];
                 info.Target = current;
@@ -226,7 +229,7 @@ namespace CsQuery.StringScanner.Implementation
                         }
 
                         // Do not handle escaping here ever - leave this to the user to handle as needed.
-                        
+
                         //if (current == '\\')
                         //{
                         //    char newChar;

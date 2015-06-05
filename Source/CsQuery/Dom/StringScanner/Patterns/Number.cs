@@ -10,7 +10,7 @@ namespace CsQuery.StringScanner.Patterns
     /// A pattern that matches a number
     /// </summary>
 
-    public class Number: ExpectPattern
+    public class Number : ExpectPattern
     {
         /// <summary>
         /// Normally true, indicates that only legal whitespace can successfully terminate the number;
@@ -37,8 +37,8 @@ namespace CsQuery.StringScanner.Patterns
 
         public override void Initialize(int startIndex, char[] sourceText)
         {
-             base.Initialize(startIndex, sourceText);
-             decimalYet = false;
+            base.Initialize(startIndex, sourceText);
+            decimalYet = false;
         }
 
         /// <summary>
@@ -52,20 +52,20 @@ namespace CsQuery.StringScanner.Patterns
         public override bool Validate()
         {
             int index = StartIndex;
-            while (index<Source.Length && Expect(ref index, Source[index]))
+            while (index < Source.Length && Expect(ref index, Source[index]))
             {
                 ;
             }
             EndIndex = index;
-    
+
             // should not have passed the end
             if (EndIndex > Length || EndIndex == StartIndex || failed)
             {
                 Result = "";
                 return false;
             }
-         
-            Result = GetOuput(StartIndex, EndIndex, false,false);
+
+            Result = GetOuput(StartIndex, EndIndex, false, false);
             return true;
         }
 
@@ -102,9 +102,9 @@ namespace CsQuery.StringScanner.Patterns
             info.Target = current;
             if (index == StartIndex)
             {
-                if (!info.Numeric && current!='-' && current!='+')
+                if (!info.Numeric && current != '-' && current != '+')
                 {
-                    failed=true;
+                    failed = true;
                     return false;
                 }
             }
@@ -113,7 +113,9 @@ namespace CsQuery.StringScanner.Patterns
                 if (info.Whitespace || info.Operator)
                 {
                     return false;
-                } else if (current == '.') {
+                }
+                else if (current == '.')
+                {
                     if (decimalYet)
                     {
                         failed = true;
@@ -123,12 +125,12 @@ namespace CsQuery.StringScanner.Patterns
                     {
                         decimalYet = true;
                     }
-                } 
+                }
                 else if (!info.Numeric)
                 {
                     failed = RequireWhitespaceTerminator;
                     return false;
-                } 
+                }
             }
             index++;
             return true;
