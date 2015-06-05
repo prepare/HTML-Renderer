@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using CsQuery.Engine;
 
-namespace CsQuery
+namespace CsQuery.Engine
 {
     /// <summary>
     /// The default DomIndexProvider.

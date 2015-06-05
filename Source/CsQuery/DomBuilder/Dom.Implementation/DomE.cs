@@ -197,10 +197,10 @@ namespace CsQuery.Implementation
             {
                 return factory.Parse(stream, encoding);
             }
-        } 
+        }
     }
 
-    public static class DomEExt
+    public static class DomExtensions
     {
 
         /// <summary>

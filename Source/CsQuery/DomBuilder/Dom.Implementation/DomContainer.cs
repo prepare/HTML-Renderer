@@ -12,7 +12,7 @@ namespace CsQuery.Implementation
     /// <summary>
     /// Base class for Dom object that contain other elements
     /// </summary>
-    public abstract class DomContainer<T> : DomObject<T>, IDomContainer where T : IDomObject, IDomContainer, new()
+    abstract class DomContainer<T> : DomObject<T>, IDomContainer where T : IDomObject, IDomContainer, new()
     {
         /// <summary>
         /// Default constructor.

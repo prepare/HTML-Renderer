@@ -85,7 +85,7 @@ namespace CsQuery.Implementation
         {
             get
             {
-                return new NodeList<IHTMLLabelElement>(DomEExt.ChildElementsOfTag<IHTMLLabelElement>(this, HtmlData.tagLABEL));
+                return new NodeList<IHTMLLabelElement>(DomExtensions.ChildElementsOfTag<IHTMLLabelElement>(this, HtmlData.tagLABEL));
             }
         }
     }

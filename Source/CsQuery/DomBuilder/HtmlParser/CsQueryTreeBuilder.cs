@@ -15,7 +15,7 @@ namespace CsQuery.HtmlParser
     /// <summary>
     /// The tree builder glue for building a tree through the public DOM APIs.
     /// </summary>
-    public class CsQueryTreeBuilder : CoalescingTreeBuilder<DomObject>
+    class CsQueryTreeBuilder : CoalescingTreeBuilder<DomObject>
     {
         /// <summary>
         /// Returns the document.

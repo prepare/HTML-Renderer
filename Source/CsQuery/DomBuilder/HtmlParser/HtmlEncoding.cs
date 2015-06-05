@@ -10,7 +10,7 @@ namespace CsQuery.HtmlParser
     /// </summary>
 
     public static class HtmlEncoding
-    {
+    {   
         private static Dictionary<string, EncodingInfo> _Encodings;
 
         /// <summary>

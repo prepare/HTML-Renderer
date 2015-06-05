@@ -126,7 +126,7 @@ namespace CsQuery.Implementation
         {
             get
             {
-                return new NodeList<IDomElement>(DomEExt.ChildElementsOfTag<IDomElement>(this, HtmlData.tagLABEL));
+                return new NodeList<IDomElement>(DomExtensions.ChildElementsOfTag<IDomElement>(this, HtmlData.tagLABEL));
             }
         }
 

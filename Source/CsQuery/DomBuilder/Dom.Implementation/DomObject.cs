@@ -14,7 +14,7 @@ namespace CsQuery.Implementation
     /// document, doctype)
     /// </summary>
 
-    public abstract class DomObject : IDomObject, IDomNode
+    abstract class DomObject : IDomObject, IDomNode
     {
 
         #region private properties
@@ -1324,7 +1324,7 @@ namespace CsQuery.Implementation
             value = null;
             return false;
         }
-         
+
         /// <summary>
         /// Returns a boolean value indicating whether the specified element has the specified attribute
         /// or not.
@@ -1756,7 +1756,7 @@ namespace CsQuery.Implementation
 
         public int CompareTo(IDomObject other)
         {
-            
+
             return PathKeyComparer.Comparer.Compare(NodePath, other.NodePath);
         }
         #endregion

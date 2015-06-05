@@ -10,7 +10,7 @@ namespace CsQuery.Implementation
     /// Base class for anything that exists in the DOM
     /// </summary>
     /// 
-    public abstract class DomObject<T> : DomObject, IDomObject<T> where T : IDomObject, new()
+    abstract class DomObject<T> : DomObject, IDomObject<T> where T : IDomObject, new()
     {
         /// <summary>
         /// Default constructor for the abstract class.
@@ -18,7 +18,7 @@ namespace CsQuery.Implementation
 
         public DomObject()
         {
-            
+
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace CsQuery.Implementation
         {
             return Clone();
         }
-        
+
     }
-    
+
 }
