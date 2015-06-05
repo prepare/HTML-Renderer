@@ -21,14 +21,14 @@ namespace CsQuery.Tests.Core.Dom
         [Test, TestMethod]
         public void DomIndexRangedTests()
         {
-            var indexTests = new SharedIndexTests<DomIndexRanged>();
+            var indexTests = new SharedIndexTests(DomIndexKind.Ranged);
             indexTests.RunAllTests();
         }
 
         [Test, TestMethod]
         public void DomIndexSimpleTests()
         {
-            var indexTests = new SharedIndexTests<DomIndexSimple>();
+            var indexTests = new SharedIndexTests(DomIndexKind.Simple);
             indexTests.RunAllTests();
         }
     }

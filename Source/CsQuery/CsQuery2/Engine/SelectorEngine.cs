@@ -97,7 +97,7 @@ namespace CsQuery.Engine
             var firstSelector = ActiveSelectors[0];
             if (firstSelector.SelectorType == SelectorType.HTML)
             {
-                return CsQuery.Implementation.DomDocHelper.Create(firstSelector.Html, HtmlParsingMode.Fragment)
+                return CsQuery.Implementation.DomE.Create(firstSelector.Html, HtmlParsingMode.Fragment)
                         .ChildNodes
                         .ToList();
             }

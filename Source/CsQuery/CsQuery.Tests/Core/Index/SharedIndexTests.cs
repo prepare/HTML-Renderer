@@ -18,16 +18,17 @@ using CsQuery.HtmlParser;
 namespace CsQuery.Tests.Core.Dom
 {
     [TestFixture, TestClass]
-    public class SharedIndexTests<T> where T : IDomIndex, new()
+    public class SharedIndexTests
     {
-        public SharedIndexTests()
+        DomIndexKind indexKind;
+        public SharedIndexTests(DomIndexKind indexKind)
         {
+            this.indexKind = indexKind;
         }
         protected CQ CreateDom()
         {
             CQ source = testHtml;
-
-            var index = new T();
+            IDomIndex index = DomIndexProviders.CreateDomIndex(this.indexKind);
             var doc = DomE.CreateNewDoc(index);
 
             var dom = new CQ(doc);

@@ -66,6 +66,26 @@ namespace CsQuery
                 return _NoDomIndexProvider;
             }
         }
+        public static Engine.IDomIndex CreateDomIndex(DomIndexKind indexKind)
+        {
+            switch (indexKind)
+            {
+                case DomIndexKind.None:
+                    return new Engine.DomIndexNone();
+                case DomIndexKind.Ranged:
+                    return new Engine.DomIndexRanged();
+                case DomIndexKind.Simple:
+                    return new Engine.DomIndexNone();
+                default:
+                    return null;
+            }
+        }
+    }
+    public enum DomIndexKind
+    {
+        Ranged,
+        Simple,
+        None
     }
 
     /// <summary>

@@ -12,7 +12,7 @@ namespace CsQuery.Engine
     /// selection engine; when availabile it will be use to optimize subqueries.
     /// </summary>
 
-    public class DomIndexRanged : IDomIndex, IDomIndexSimple, IDomIndexRanged, IDomIndexQueue
+    class DomIndexRanged : IDomIndex, IDomIndexSimple, IDomIndexRanged, IDomIndexQueue
     {
         /// <summary>
         /// Default constructor.

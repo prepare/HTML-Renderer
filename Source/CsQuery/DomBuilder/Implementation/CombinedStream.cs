@@ -100,7 +100,7 @@ namespace CsQuery.Implementation
     /// Base stream implementation
     /// </summary>
 
-    public abstract class BaseStream : Stream
+    abstract class BaseStream : Stream
     {
         /// <summary>
         /// When overridden in a derived class, gets a value indicating whether the current stream supports reading.

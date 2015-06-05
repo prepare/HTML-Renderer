@@ -13,7 +13,7 @@ namespace CsQuery.Engine
     /// worse for complex queries.
     /// </summary>
 
-    public class DomIndexSimple : IDomIndex, IDomIndexSimple
+    class DomIndexSimple : IDomIndex, IDomIndexSimple
     {
         /// <summary>
         /// Default constructor for the index
