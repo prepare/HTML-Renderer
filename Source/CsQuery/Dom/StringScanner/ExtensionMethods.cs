@@ -15,7 +15,7 @@ namespace CsQuery.StringScanner.ExtensionMethods
     /// Extension methods used by CsQuery but not specialized enough to be considered useful for clients; therefore
     /// in a separate namespace.
     /// </summary>
-    public static class ExtensionMethods
+    static class ExtensionMethods
     {
 
         /// <summary>

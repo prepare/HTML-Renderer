@@ -13,11 +13,11 @@ using CsQuery.StringScanner.Implementation;
 
 namespace CsQuery.StringScanner.Patterns
 {
-    
+
     /// <summary>
     /// Matches anything that is bounded by accepted bounding characters
     /// </summary>
-    public class Bounded: ExpectPattern
+    class Bounded : ExpectPattern
     {
 
         private string _BoundStart = "";
@@ -33,7 +33,7 @@ namespace CsQuery.StringScanner.Patterns
         // This is a one-character type with different open/close - must track nested entites
         private int nestedCount;
 
-        
+
         public bool HonorInnerQuotes { get; set; }
         public string BoundStart
         {
@@ -67,7 +67,7 @@ namespace CsQuery.StringScanner.Patterns
                 _BoundEnd = value;
                 _BoundEndChar = value[0];
             }
-        }        
+        }
         protected char BoundStartChar
         {
             get
@@ -91,7 +91,7 @@ namespace CsQuery.StringScanner.Patterns
                 _BoundEndChar = value;
             }
         }
-  
+
         public override void Initialize(int startIndex, char[] sourceText)
         {
             base.Initialize(startIndex, sourceText);
@@ -102,12 +102,12 @@ namespace CsQuery.StringScanner.Patterns
         }
         public override bool Validate()
         {
-            int index=StartIndex;
+            int index = StartIndex;
             while (index < Source.Length && Expect(ref index, Source[index]))
             {
                 ;
             }
-                      
+
             EndIndex = index;
 
             // should not have passed the end
@@ -126,8 +126,9 @@ namespace CsQuery.StringScanner.Patterns
         protected bool Expect(ref int index, char current)
         {
             info.Target = current;
-            
-            if (!quoting) {
+
+            if (!quoting)
+            {
                 // only try to match bounds when not inside quotes
                 if (hasStartBound)
                 {
@@ -160,32 +161,38 @@ namespace CsQuery.StringScanner.Patterns
                     }
                 }
 
-                if (current == BoundEndChar )
+                if (current == BoundEndChar)
                 {
                     if (boundAny)
                     {
-                        if (nestedCount==0) {
-                            matched= true;
+                        if (nestedCount == 0)
+                        {
+                            matched = true;
                             index++;
                             return false;
-                        } else {
+                        }
+                        else
+                        {
                             nestedCount--;
                         }
-                    } 
+                    }
                     else if (MatchSubstring(index, BoundEnd))
                     {
-                        if (nestedCount==0) {
+                        if (nestedCount == 0)
+                        {
                             index += BoundEnd.Length;
                             matched = true;
                             return false;
-                        } else {
+                        }
+                        else
+                        {
                             nestedCount--;
                         }
                     }
                 }
             }
-            
-            
+
+
             // Now the regular part
             if (HonorInnerQuotes)
             {
@@ -208,7 +215,7 @@ namespace CsQuery.StringScanner.Patterns
             }
             index++;
             return true;
-            
+
         }
 
 

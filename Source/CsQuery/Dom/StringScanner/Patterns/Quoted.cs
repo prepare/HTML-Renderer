@@ -11,13 +11,13 @@ namespace CsQuery.StringScanner.Patterns
     /// including backslashed escape characters, and terminates upon a matching closing quote.
     /// </summary>
 
-    public class Quoted: ExpectPattern
+    public class Quoted : ExpectPattern
     {
 
         /// <summary>
         /// The quote character that was used to open the string.
         /// </summary>
-        
+
         char quoteChar;
 
         /// <summary>
@@ -31,12 +31,12 @@ namespace CsQuery.StringScanner.Patterns
         public override bool Validate()
         {
             int index = StartIndex;
-            while (index<Source.Length && Expect(ref index, Source[index]))
+            while (index < Source.Length && Expect(ref index, Source[index]))
             {
                 ;
             }
             EndIndex = index;
-    
+
             // should not have passed the end
             if (EndIndex > Length || EndIndex == StartIndex)
             {
@@ -54,7 +54,8 @@ namespace CsQuery.StringScanner.Patterns
         /// true if the string matched the pattern defined by this instance, false if not.
         /// </returns>
 
-        protected virtual bool FinishValidate(){ 
+        protected virtual bool FinishValidate()
+        {
             //return the substring excluding the quotes
             Result = GetOuput(StartIndex, EndIndex, true, true);
             return true;

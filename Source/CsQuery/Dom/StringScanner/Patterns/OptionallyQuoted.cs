@@ -109,7 +109,7 @@ namespace CsQuery.StringScanner.Patterns
                 Result = GetOuput(StartIndex, EndIndex, false);
                 return true;
             }
-           
+
         }
 
         /// <summary>
@@ -137,14 +137,15 @@ namespace CsQuery.StringScanner.Patterns
             }
             else
             {
-                bool isEscaped = index>0 && Source[index - 1] == '\\';
-                if (!isEscaped && Terminators.Contains(current)) {
+                bool isEscaped = index > 0 && Source[index - 1] == '\\';
+                if (!isEscaped && Terminators.Contains(current))
+                {
                     return false;
                 }
                 index++;
                 return true;
             }
-                
+
         }
 
     }

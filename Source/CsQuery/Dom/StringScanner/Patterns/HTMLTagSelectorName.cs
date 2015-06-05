@@ -10,13 +10,13 @@ namespace CsQuery.StringScanner.Patterns
     /// A pattern that matches a valid HTML tag selector.
     /// </summary>
 
-    public class HTMLTagSelectorName: EscapedString
+    class HTMLTagSelectorName : EscapedString
     {
         /// <summary>
         /// Default constructor.
         /// </summary>
 
-        public HTMLTagSelectorName() : 
+        public HTMLTagSelectorName() :
             base(IsValidTagName)
         {
 

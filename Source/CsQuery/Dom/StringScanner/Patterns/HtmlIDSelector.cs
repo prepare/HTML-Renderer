@@ -9,13 +9,13 @@ namespace CsQuery.StringScanner.Patterns
     /// <summary>
     /// ID can contain any character other than a space; however, a selector is bounded by other terminators.
     /// </summary>
-    public class HtmlIDSelector: EscapedString
+    class HtmlIDSelector : EscapedString
     {
         /// <summary>
         /// Default constructor.
         /// </summary>
 
-        public HtmlIDSelector() : 
+        public HtmlIDSelector() :
             base(IsValidIDSelector)
         {
 

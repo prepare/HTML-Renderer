@@ -16,17 +16,18 @@ namespace CsQuery.StringScanner.Patterns
     /// Match a string pattern against a particular character validation function, but allow the backslash to escape 
     /// any character.
     /// </summary>
-    public class EscapedString: ExpectPattern
+   public class EscapedString : ExpectPattern
     {
         /// <summary>
         /// Default constructor -- simply parses escapes until the end of the string
         /// </summary>
 
-        public EscapedString(): this(AlwaysValid)
+        public EscapedString()
+            : this(AlwaysValid)
         {
-            
+
         }
-        public EscapedString(Func<int,char, bool> validCharacter)
+        public EscapedString(Func<int, char, bool> validCharacter)
         {
             ValidCharacter = validCharacter;
         }
@@ -41,10 +42,10 @@ namespace CsQuery.StringScanner.Patterns
         {
             int index = StartIndex;
             int relativeIndex = 0;
-            bool done=false;
-            Result="";
+            bool done = false;
+            Result = "";
 
-            while (index<Source.Length && !done)
+            while (index < Source.Length && !done)
             {
                 char character = Source[index];
                 if (!Escaped && character == '\\')
@@ -55,18 +56,18 @@ namespace CsQuery.StringScanner.Patterns
                 {
                     if (Escaped)
                     {
-						// process unicode char code point, if presented
-						int tempIndex = index;
-						StringBuilder sb = new StringBuilder();
+                        // process unicode char code point, if presented
+                        int tempIndex = index;
+                        StringBuilder sb = new StringBuilder();
 
                         while (tempIndex < Source.Length // end of string?
                             && tempIndex - index < 6     // only 6 hexadecimal digits are allowed
-                            && CharacterData.IsType(Source[tempIndex],CharacterType.Hexadecimal))
-						{
-							sb.Append(Source[tempIndex]);
+                            && CharacterData.IsType(Source[tempIndex], CharacterType.Hexadecimal))
+                        {
+                            sb.Append(Source[tempIndex]);
 
-							tempIndex++;
-						}
+                            tempIndex++;
+                        }
 
                         if (sb.Length >= 1)
                         {
@@ -98,12 +99,12 @@ namespace CsQuery.StringScanner.Patterns
                             sb.Append(Source[tempIndex]);
 
                         }
-												
+
                         Escaped = false;
                     }
                     else
                     {
-                        if (!ValidCharacter(relativeIndex,character))
+                        if (!ValidCharacter(relativeIndex, character))
                         {
                             done = true;
                             continue;
@@ -116,18 +117,18 @@ namespace CsQuery.StringScanner.Patterns
             }
             bool failed = Escaped;
             EndIndex = index;
-    
+
             // should not have passed the end
             if (EndIndex > Length || EndIndex == StartIndex || failed)
             {
                 Result = "";
                 return false;
             }
-         
+
             return true;
         }
 
         protected bool failed = false;
-       
+
     }
 }
