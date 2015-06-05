@@ -28,7 +28,7 @@ namespace CsQuery.Tests.Core.Dom
             CQ source = testHtml;
 
             var index = new T();
-            var doc = new DomDocument(index);
+            var doc = DomE.CreateNewDoc(index);
 
             var dom = new CQ(doc);
 

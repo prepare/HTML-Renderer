@@ -1776,7 +1776,7 @@ namespace CsQuery
 
         public static IDomDocument CreateDocument()
         {
-            return new Implementation.DomDocument();
+            return Implementation.DomE.CreateNewDoc();             
         }
 
         /// <summary>

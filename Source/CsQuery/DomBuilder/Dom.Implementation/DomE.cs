@@ -82,6 +82,22 @@ namespace CsQuery.Implementation
         {
             return new Implementation.DomFragment();
         }
+
+
+        public static IDomDocument CreateNewDoc()
+        {
+            return new Implementation.DomDocument();
+        }
+        public static IDomDocument CreateNewDoc(Engine.IDomIndex index)
+        {
+            return new Implementation.DomDocument(index);
+        }
+        public static IDomDocument Create(IEnumerable<IDomObject> elements,
+          HtmlParsingMode parsingMode = HtmlParsingMode.Content,
+          DocType docType = DocType.Default)
+        {
+            return DomDocument.Create(elements, parsingMode, docType);
+        }
     }
 
     public static class DomEExt

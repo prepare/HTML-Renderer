@@ -275,7 +275,7 @@ namespace CsQuery
 
         protected void CreateNewDocument()
         {
-            Document = new DomDocument();
+            Document = DomE.CreateNewDoc();
         }
 
         /// <summary>
@@ -297,7 +297,7 @@ namespace CsQuery
 
         protected void CreateNewFragment(IEnumerable<IDomObject> elements)
         {
-            Document = DomDocument.Create(elements.Clone(), HtmlParsingMode.Fragment);
+            Document = DomE.Create(elements.Clone(), HtmlParsingMode.Fragment);
             AddSelection(Document.ChildNodes);
         }
 

@@ -15,9 +15,9 @@ namespace CsQuery.Implementation
     /// <summary>
     /// Special node type to represent the DOM.
     /// </summary>
-    public class DomDocument : DomContainer<DomDocument>, IDomDocument
+    class DomDocument : DomContainer<DomDocument>, IDomDocument
     {
-        #region static methods 
+        #region static methods
 
         /// <summary>
         /// Creates a new, empty DomDocument
@@ -50,7 +50,7 @@ namespace CsQuery.Implementation
         /// A new IDomDocument object
         /// </returns>
 
-        public static IDomDocument Create(IEnumerable<IDomObject> elements, 
+        public static IDomDocument Create(IEnumerable<IDomObject> elements,
             HtmlParsingMode parsingMode = HtmlParsingMode.Content,
             DocType docType = DocType.Default)
         {
@@ -59,14 +59,14 @@ namespace CsQuery.Implementation
                 new DomFragment();
 
             // only set a DocType node for documents.
-             
+
             if (parsingMode == HtmlParsingMode.Document)
             {
                 doc.DocType = docType;
             }
             doc.Populate(elements);
             return doc;
-        } 
+        }
 
         #endregion
 
@@ -76,11 +76,11 @@ namespace CsQuery.Implementation
         /// Create a new, empty DOM document using the default DomIndex provider.
         /// </summary>
         /// 
-        
+
         public DomDocument()
             : this(null)
         {
-            
+
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace CsQuery.Implementation
 
         public DomDocument(IDomIndex domIndex)
             : base()
-        { 
+        {
             DocumentIndex = domIndex;// ?? CsQuery.Config.DomIndexProvider.GetDomIndex();
         }
 
@@ -147,7 +147,8 @@ namespace CsQuery.Implementation
 
         public IDomIndex DocumentIndex
         {
-            get; protected set;
+            get;
+            protected set;
         }
 
 
@@ -175,7 +176,7 @@ namespace CsQuery.Implementation
         {
             get
             {
-                return new ushort[] {};
+                return new ushort[] { };
             }
         }
 
@@ -266,7 +267,7 @@ namespace CsQuery.Implementation
                     docTypeNode.Remove();
                 }
 
-                ChildNodes.Insert(0,value);
+                ChildNodes.Insert(0, value);
 
             }
         }
@@ -280,7 +281,7 @@ namespace CsQuery.Implementation
             get
             {
                 // If explicitly set, return that value, otherwise get from DomDocument node
-               
+
                 IDomDocumentType docNode = DocTypeNode;
                 if (docNode == null)
                 {
@@ -341,7 +342,7 @@ namespace CsQuery.Implementation
             get
             {
                 //only 1 body
-                 
+
                 throw new MyNotImplementException();
                 //return this.QuerySelectorAll("body").FirstOrDefault();
             }
@@ -388,7 +389,7 @@ namespace CsQuery.Implementation
         #region public methods
 
 
-     
+
         /// <summary>
         /// Returns a reference to the element by its ID.
         /// </summary>
@@ -426,7 +427,7 @@ namespace CsQuery.Implementation
         /// The element by id&lt; t&gt;
         /// </returns>
 
-        public T GetElementById<T>(string id) where T: IDomElement
+        public T GetElementById<T>(string id) where T : IDomElement
         {
             throw new MyNotImplementException();
             // construct the selector manually so there's no syntax checking as if it were a general-purpose selector
@@ -546,7 +547,7 @@ namespace CsQuery.Implementation
         /// https://developer.mozilla.org/en/DOM/document.createElement
         /// </url>
 
-        public IDomElement CreateElement(string nodeName) 
+        public IDomElement CreateElement(string nodeName)
         {
             return DomE.Create(nodeName);
         }
@@ -616,7 +617,7 @@ namespace CsQuery.Implementation
 
         public IDomDocumentType CreateDocumentType(string type, string access, string FPI, string URI)
         {
-            return new DomDocumentType(type, access,FPI,URI);
+            return new DomDocumentType(type, access, FPI, URI);
         }
 
         /// <summary>
@@ -817,8 +818,8 @@ namespace CsQuery.Implementation
         }
 
         #endregion
-        
+
 
     }
-    
+
 }
