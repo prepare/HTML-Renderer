@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-
-using System.Text;
-using CsQuery.Output;
-
+﻿
 namespace CsQuery
-{   
+{
     /// <summary>
     /// A regular DOM element
     /// </summary>
-    
+
     public interface IDomElement : IDomContainer, IDomIndexedNode
     {
         /// <summary>
@@ -25,7 +20,7 @@ namespace CsQuery
         /// <returns>
         /// A string of HTML.
         /// </returns>
-        
+
         string ElementHtml();
 
         /// <summary>
@@ -34,9 +29,6 @@ namespace CsQuery
         /// </summary>
 
         int ElementIndex { get; }
-
-
-
-
+        bool TryGetAttribute(ushort tokenId, out string value);
     }
 }

@@ -275,7 +275,7 @@ namespace CsQuery
 
         protected void CreateNewDocument()
         {
-            Document = new DomDocument();
+            Document = DomE.CreateNewDoc();
         }
 
         /// <summary>
@@ -284,7 +284,7 @@ namespace CsQuery
 
         protected void CreateNewFragment()
         {
-            Document = new DomFragment();
+            Document = Implementation.DomE.CreateDomFragment();
         }
 
         /// <summary>
@@ -297,7 +297,7 @@ namespace CsQuery
 
         protected void CreateNewFragment(IEnumerable<IDomObject> elements)
         {
-            Document = DomDocument.Create(elements.Clone(), HtmlParsingMode.Fragment);
+            Document = DomE.Create(elements.Clone(), HtmlParsingMode.Fragment);
             AddSelection(Document.ChildNodes);
         }
 
@@ -332,7 +332,7 @@ namespace CsQuery
           DocType docType)
         {
 
-            target.Document = DomDocHelper.Create(html, encoding, parsingMode, parsingOptions, docType);
+            target.Document = DomE.Create(html, encoding, parsingMode, parsingOptions, docType);
 
             //  enumerate ChildNodes when creating a new fragment to be sure the selection set only
             //  reflects the original document. 
@@ -362,7 +362,7 @@ namespace CsQuery
           string context,
           DocType docType)
         {
-            target.Document = DomDocHelper.CreateDocFragment(html, context, docType);
+            target.Document = DomE.CreateDocFragment(html, context, docType);
 
             //  enumerate ChildNodes when creating a new fragment to be sure the selection set only
             //  reflects the original document. 

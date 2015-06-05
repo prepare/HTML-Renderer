@@ -1569,7 +1569,7 @@ namespace CsQuery
                             {
                                 continue;
                             }
-                            propInfo.GetSetMethod().Invoke(target,new object[] {value});
+                            propInfo.GetSetMethod().Invoke(target, new object[] { value });
 
                         }
                         else if (member is FieldInfo)
@@ -1746,7 +1746,7 @@ namespace CsQuery
 
         public static IDomText CreateTextNode(string text)
         {
-            return new Implementation.DomText(text);
+            return Implementation.DomE.CreateTextNode(text);
         }
 
         /// <summary>
@@ -1763,7 +1763,7 @@ namespace CsQuery
 
         public static IDomComment CreateComment(string comment)
         {
-            return new Implementation.DomComment(comment);
+            return Implementation.DomE.CreateComment(comment);
         }
 
         /// <summary>
@@ -1776,7 +1776,7 @@ namespace CsQuery
 
         public static IDomDocument CreateDocument()
         {
-            return new Implementation.DomDocument();
+            return Implementation.DomE.CreateNewDoc();             
         }
 
         /// <summary>
@@ -1793,7 +1793,7 @@ namespace CsQuery
 
         public static IDomCData CreateCData(string data)
         {
-            return new Implementation.DomCData();
+            return Implementation.DomE.CreateCData(data);
         }
 
         /// <summary>
@@ -1806,7 +1806,7 @@ namespace CsQuery
 
         public static IDomFragment CreateFragment()
         {
-            return new Implementation.DomFragment();
+            return Implementation.DomE.CreateDomFragment();
         }
 
 

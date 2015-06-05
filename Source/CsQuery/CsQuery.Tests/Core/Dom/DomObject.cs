@@ -36,7 +36,7 @@ namespace CsQuery.Tests.Core.Dom
             // these are automatically generated in CQ.CreateDocument
             Assert.AreEqual("BODY", ancestors[2].NodeName);
             Assert.AreEqual("HTML", ancestors[3].NodeName);
-            Assert.AreEqual(typeof(DomDocument), ancestors[4].GetType());
+            Assert.AreEqual(typeof(IDomDocument), ancestors[4].GetType());
         }
 
         [Test, TestMethod]

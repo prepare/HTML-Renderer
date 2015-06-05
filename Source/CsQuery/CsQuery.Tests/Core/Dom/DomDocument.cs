@@ -24,7 +24,7 @@ namespace CsQuery.Tests.Core.Dom
         {
             var frag = TestDocument();
 
-            DomDocument concreteFrag = (DomDocument)frag[0].Document;
+            IDomDocument concreteFrag =  frag[0].Document;
             Assert.IsFalse(concreteFrag.IsDisconnected);
             Assert.IsTrue(concreteFrag.IsIndexed);
             var index = concreteFrag.DocumentIndex;

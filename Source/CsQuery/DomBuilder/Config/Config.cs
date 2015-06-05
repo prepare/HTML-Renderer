@@ -15,7 +15,7 @@ namespace CsQuery
     /// Global configuration and defaults
     /// </summary>
 
-    public static class Config
+    static class Config
     {
         #region constructor
 

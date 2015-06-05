@@ -89,7 +89,7 @@ namespace CsQuery
         {
 
             int count = 0;
-            
+
             foreach (IDomElement obj in Elements)
             {
                 var inner = obj.TextContent;
@@ -142,7 +142,7 @@ namespace CsQuery
 
             }
         }
-        
+
 
         /// <summary>
         /// Sets a child text for this element, using the text node type appropriate for this element's type
@@ -161,7 +161,7 @@ namespace CsQuery
             {
                 el.ChildNodes.Clear();
 
-                IDomText textEl = new DomText(text);
+                IDomText textEl = DomE.CreateTextNode(text);
                 el.ChildNodes.Add(textEl);
             }
         }

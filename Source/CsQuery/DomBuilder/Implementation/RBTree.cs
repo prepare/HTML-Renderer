@@ -38,7 +38,7 @@ using System.Collections.Generic;
 namespace CsQuery.Implementation.Mono
 {
     [Serializable]
-    internal class RBTree : IEnumerable, IEnumerable<RBTree.Node>
+    class RBTree : IEnumerable, IEnumerable<RBTree.Node>
     {
         public interface INodeHelper<T>
         {
@@ -189,8 +189,8 @@ namespace CsQuery.Implementation.Mono
 
             List<Node> path = alloc_path();
             //int in_tree_cmp = find_key(key, path);
-             if (path != null)
-                            path.Add(root);
+            if (path != null)
+                path.Add(root);
 
             Node retval = path[path.Count - 1];
             if (retval == null)
@@ -218,7 +218,7 @@ namespace CsQuery.Implementation.Mono
                 return root;
             }
 
-            
+
             List<Node> path = alloc_path();
             int in_tree_cmp = find_key(key, path);
             Node retval = path[path.Count - 1];

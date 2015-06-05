@@ -17,7 +17,7 @@ using CsQuery.Implementation;
 namespace CsQuery.Tests.Core
 {
     [TestFixture, TestClass]
-    public class Methods_Create: CsQueryTest
+    public class Methods_Create : CsQueryTest
     {
         string divDom;
         string divDomFull;
@@ -34,7 +34,7 @@ namespace CsQuery.Tests.Core
         [Test, TestMethod]
         public void Create_String()
         {
-            
+
             var div = CQ.Create("<div></div>")
                .AddClass("content");
 
@@ -46,8 +46,8 @@ namespace CsQuery.Tests.Core
         {
             byte[] byteArray = Encoding.Unicode.GetBytes(divDom);
             Stream stream = new MemoryStream(byteArray);
-          
-            var div = CQ.Create(stream,Encoding.Unicode);
+
+            var div = CQ.Create(stream, Encoding.Unicode);
 
             Assert.AreEqual(divDom, div.Render());
         }
@@ -55,17 +55,17 @@ namespace CsQuery.Tests.Core
         [Test, TestMethod]
         public void Create_Element()
         {
-            var el = DomElement.Create("div");
+            var el = DomE.Create("div");
             el.ClassName = "content";
 
             var div = CQ.Create(el);
             Assert.AreEqual(divDom, div.Render());
         }
-        
+
         [Test, TestMethod]
         public void Create_Elements()
         {
-            var el = DomElement.Create("div");
+            var el = DomE.Create("div");
             el.ClassName = "content";
 
             var div = CQ.Create(Objects.Enumerate(el));
@@ -95,8 +95,8 @@ namespace CsQuery.Tests.Core
         {
             string row = "<tr><td><span>text</span></td></tr>";
 
-            string table = "<table>"+row+"</table>";
-            
+            string table = "<table>" + row + "</table>";
+
             var div = CQ.Create(row, HtmlParsingMode.Fragment);
             Assert.AreEqual(row, div.Render());
 
@@ -104,11 +104,11 @@ namespace CsQuery.Tests.Core
             Assert.AreEqual("<span>text</span>", div.Render());
 
             div = CQ.Create(table, HtmlParsingMode.Content);
-            Assert.AreEqual("<table><tbody>"+row+"</tbody></table>", div.Render());
+            Assert.AreEqual("<table><tbody>" + row + "</tbody></table>", div.Render());
 
             div = CQ.Create(table, HtmlParsingMode.Document);
-            Assert.AreEqual("<html><head></head><body><table><tbody>"+row+"</tbody></table></body></html>", div.Render());
+            Assert.AreEqual("<html><head></head><body><table><tbody>" + row + "</tbody></table></body></html>", div.Render());
 
         }
-   }
+    }
 }

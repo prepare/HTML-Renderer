@@ -18,15 +18,19 @@ using CsQuery.HtmlParser;
 namespace CsQuery.Tests.Core.Dom
 {
     [TestFixture, TestClass]
-    public class SharedIndexTests<T> where T : IDomIndex, new()
-    {   
+    public class SharedIndexTests
+    {
+        DomIndexKind indexKind;
+        public SharedIndexTests(DomIndexKind indexKind)
+        {
+            this.indexKind = indexKind;
+        }
         protected CQ CreateDom()
         {
             CQ source = testHtml;
+            IDomIndex index = DomIndexProviders.CreateDomIndex(this.indexKind);
+            var doc = DomE.CreateNewDoc(index);
 
-            var index  = new T();
-            var doc = new DomDocument(index);
-            
             var dom = new CQ(doc);
 
             doc.AppendChild(source["html"][0]);
@@ -42,7 +46,7 @@ namespace CsQuery.Tests.Core.Dom
             QueryByNodeName();
         }
 
-        
+
         public void QueryByID()
         {
             var dom = CreateDom();
@@ -77,7 +81,7 @@ namespace CsQuery.Tests.Core.Dom
             Assert.AreEqual(3, dom[selector].Length);
             CollectionAssert.AreEqual(
                 dom[selector].ToList(),
-                ((IDomIndexSimple)dom.Document.DocumentIndex).QueryIndex(GetKey("+"+selector)).ToList()
+                ((IDomIndexSimple)dom.Document.DocumentIndex).QueryIndex(GetKey("+" + selector)).ToList()
             );
         }
 
@@ -89,10 +93,10 @@ namespace CsQuery.Tests.Core.Dom
             string key = "data";
 
             Assert.AreEqual(2, dom[selector].Length);
-            
+
             CollectionAssert.AreEqual(
                 dom[selector].ToList(),
-                ((IDomIndexSimple)dom.Document.DocumentIndex).QueryIndex(GetKey("!"+key)).ToList()
+                ((IDomIndexSimple)dom.Document.DocumentIndex).QueryIndex(GetKey("!" + key)).ToList()
             );
         }
 
@@ -100,14 +104,14 @@ namespace CsQuery.Tests.Core.Dom
         {
             var dom = CreateDom();
 
-            string selector="span";
+            string selector = "span";
 
             var len = dom[selector].Length;
 
             dom["[data=something]"].Remove();
 
             Assert.AreEqual(len - 1, dom[selector].Length);
-            Assert.AreEqual(len - 1, ((IDomIndexSimple)dom.Document.DocumentIndex).QueryIndex(GetKey("+"+selector)).ToList());
+            Assert.AreEqual(len - 1, ((IDomIndexSimple)dom.Document.DocumentIndex).QueryIndex(GetKey("+" + selector)).ToList());
 
         }
 

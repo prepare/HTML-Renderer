@@ -36,7 +36,7 @@ namespace CsQuery.Engine
         {
 
             string value;
-            bool match = ((DomElement)element).TryGetAttributeForMatching(selector.AttributeNameTokenID,out value);
+            bool match = ((IDomElement)element).TryGetAttribute(selector.AttributeNameTokenID,out value);
 
             if (!match)
             {

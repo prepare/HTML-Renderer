@@ -105,7 +105,7 @@ namespace CsQuery
         public CQ Append(Func<int, string, string> func)
         {
             int index = 0;
-            foreach (DomElement obj in Elements)
+            foreach (var obj in Elements)
             {
 
                 string val = func(index, obj.InnerHTML);
@@ -241,7 +241,7 @@ namespace CsQuery
         /// <returns>
         /// Either the element itself, or the TBODY element if the target was a TABLE
         /// </returns>
-        
+
         private IDomElement GetTrueTarget(IDomElement target)
         {
             //Special handling for tables: make sure we add to the TBODY
