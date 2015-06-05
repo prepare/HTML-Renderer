@@ -19,7 +19,7 @@ namespace CsQuery.Tests.Core.Implementation
         /// Issue #15
         /// </summary>
         [Test, TestMethod]
-        public void CombineStringreaders()
+        public void CombineStringReaders()
         {
             string string1 = "Line1\nLine2";
             string string2 = "abcdef";
