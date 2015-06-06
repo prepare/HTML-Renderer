@@ -212,11 +212,9 @@ namespace HtmlParserSharp.Core
     /// can be configured to treat these conditions as fatal or to coerce the infoset
     /// to something that XML 1.0 allows.
     /// </summary>
-    public class Tokenizer : ILocator
+    public class Tokenizer
     {
-        private const byte DATA_AND_RCDATA_MASK = (byte)0xF0;
-
-
+        private const byte DATA_AND_RCDATA_MASK = (byte)0xF0; 
         /// <summary>
         /// Magic value for UTF-16 operations.
         /// </summary>
@@ -6829,7 +6827,7 @@ namespace HtmlParserSharp.Core
         {
             additional = add;
             // [NOCPP[
-            ampersandLocation = new Locator(this);
+            ampersandLocation = new Locator(this.LineNumber, this.ColumnNumber);
             // ]NOCPP]
         }
 
