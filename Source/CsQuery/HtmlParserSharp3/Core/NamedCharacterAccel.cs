@@ -12,9 +12,9 @@
 
 namespace HtmlParserSharp.Core
 {
-	public sealed class NamedCharactersAccel
-	{
-		internal static readonly int[][] HILO_ACCEL = new int[][] {
+    sealed class NamedCharactersAccel
+    {
+        internal static readonly int[][] HILO_ACCEL = new int[][] {
 			null,
 			null,
 			null,
@@ -306,6 +306,6 @@ namespace HtmlParserSharp.Core
 					0, 0, 0, 0, 0, 0, 0, 64422870, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 					0, 0, 0, 0, 0, 132122591, 0, 0, 142084216, 0, 0, 0, 0, }, };
 
-	}
+    }
 
 }

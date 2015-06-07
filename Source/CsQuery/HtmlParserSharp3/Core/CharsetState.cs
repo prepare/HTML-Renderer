@@ -30,30 +30,30 @@
 
 namespace HtmlParserSharp.Core
 {
-	public enum CharsetState
-	{
-		CHARSET_INITIAL = 0,
+    enum CharsetState
+    {
+        CHARSET_INITIAL = 0,
 
-		CHARSET_C = 1,
+        CHARSET_C = 1,
 
-		CHARSET_H = 2,
+        CHARSET_H = 2,
 
-		CHARSET_A = 3,
+        CHARSET_A = 3,
 
-		CHARSET_R = 4,
+        CHARSET_R = 4,
 
-		CHARSET_S = 5,
+        CHARSET_S = 5,
 
-		CHARSET_E = 6,
+        CHARSET_E = 6,
 
-		CHARSET_T = 7,
+        CHARSET_T = 7,
 
-		CHARSET_EQUALS = 8,
+        CHARSET_EQUALS = 8,
 
-		CHARSET_SINGLE_QUOTED = 9,
+        CHARSET_SINGLE_QUOTED = 9,
 
-		CHARSET_DOUBLE_QUOTED = 10,
+        CHARSET_DOUBLE_QUOTED = 10,
 
-		CHARSET_UNQUOTED = 11
-	}
+        CHARSET_UNQUOTED = 11
+    }
 }

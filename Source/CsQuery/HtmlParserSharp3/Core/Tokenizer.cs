@@ -214,7 +214,7 @@ namespace HtmlParserSharp.Core
     /// </summary>
     public class Tokenizer
     {
-        private const byte DATA_AND_RCDATA_MASK = (byte)0xF0; 
+        private const byte DATA_AND_RCDATA_MASK = (byte)0xF0;
         /// <summary>
         /// Magic value for UTF-16 operations.
         /// </summary>
@@ -473,7 +473,7 @@ namespace HtmlParserSharp.Core
 
         // [NOCPP[
 
-        protected Locator ampersandLocation;
+        protected Location ampersandLocation;
 
         public Tokenizer(ITokenHandler tokenHandler, bool newAttributesEachTime)
         {
@@ -721,11 +721,10 @@ namespace HtmlParserSharp.Core
             }
         }
 
-        #region Locator implementation
 
         /**
-		 * @see org.xml.sax.Locator#getLineNumber()
-		 */
+         * @see org.xml.sax.Locator#getLineNumber()
+         */
         public int LineNumber
         {
             get
@@ -751,7 +750,6 @@ namespace HtmlParserSharp.Core
             }
         }
 
-        #endregion // locator implementation
 
         // end of public API
 
@@ -6827,7 +6825,7 @@ namespace HtmlParserSharp.Core
         {
             additional = add;
             // [NOCPP[
-            ampersandLocation = new Locator(this.LineNumber, this.ColumnNumber);
+            ampersandLocation = new Location(this.LineNumber, this.ColumnNumber);
             // ]NOCPP]
         }
 

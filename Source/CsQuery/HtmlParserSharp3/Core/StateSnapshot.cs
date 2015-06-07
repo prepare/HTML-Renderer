@@ -27,80 +27,80 @@
 
 namespace HtmlParserSharp.Core
 {
-	public class StateSnapshot<T> : ITreeBuilderState<T> where T : class
-	{
-		/// <summary>
-		/// Gets the stack.
-		/// </summary>
-		public StackNode<T>[] Stack { get; private set; }
+    class StateSnapshot<T> : ITreeBuilderState<T> where T : class
+    {
+        /// <summary>
+        /// Gets the stack.
+        /// </summary>
+        public StackNode<T>[] Stack { get; private set; }
 
-		/// <summary>
-		/// Gets the list of active formatting elements.
-		/// </summary>
-		public StackNode<T>[] ListOfActiveFormattingElements { get; private set; }
+        /// <summary>
+        /// Gets the list of active formatting elements.
+        /// </summary>
+        public StackNode<T>[] ListOfActiveFormattingElements { get; private set; }
 
-		public T FormPointer { get; private set; }
+        public T FormPointer { get; private set; }
 
-		public T HeadPointer { get; private set; }
+        public T HeadPointer { get; private set; }
 
-		public T DeepTreeSurrogateParent { get; private set; }
+        public T DeepTreeSurrogateParent { get; private set; }
 
-		/// <summary>
-		/// Gets the mode.
-		/// </summary>
-		public InsertionMode Mode { get; private set; }
+        /// <summary>
+        /// Gets the mode.
+        /// </summary>
+        public InsertionMode Mode { get; private set; }
 
-		/// <summary>
-		/// Gets the original mode.
-		/// </summary>
-		public InsertionMode OriginalMode { get; private set; }
+        /// <summary>
+        /// Gets the original mode.
+        /// </summary>
+        public InsertionMode OriginalMode { get; private set; }
 
-		/// <summary>
-		/// Gets a value indicating whether this instance is frameset ok.
-		/// </summary>
-		/// <value>
-		/// 	<c>true</c> if this instance is frameset ok; otherwise, <c>false</c>.
-		/// </value>
-		public bool IsFramesetOk { get; private set; }
+        /// <summary>
+        /// Gets a value indicating whether this instance is frameset ok.
+        /// </summary>
+        /// <value>
+        /// 	<c>true</c> if this instance is frameset ok; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsFramesetOk { get; private set; }
 
-		/// <summary>
-		/// Gets a value indicating whether this instance is need to drop LF.
-		/// </summary>
-		/// <value>
-		/// 	<c>true</c> if this instance is need to drop LF; otherwise, <c>false</c>.
-		/// </value>
-		public bool IsNeedToDropLF { get; private set; }
+        /// <summary>
+        /// Gets a value indicating whether this instance is need to drop LF.
+        /// </summary>
+        /// <value>
+        /// 	<c>true</c> if this instance is need to drop LF; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsNeedToDropLF { get; private set; }
 
-		/// <summary>
-		/// Gets a value indicating whether this instance is quirks.
-		/// </summary>
-		/// <value>
-		///   <c>true</c> if this instance is quirks; otherwise, <c>false</c>.
-		/// </value>
-		public bool IsQuirks { get; private set; }
+        /// <summary>
+        /// Gets a value indicating whether this instance is quirks.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is quirks; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsQuirks { get; private set; }
 
-		internal StateSnapshot(StackNode<T>[] stack,
-				StackNode<T>[] listOfActiveFormattingElements,
-				T formPointer,
-				T headPointer,
-				T deepTreeSurrogateParent,
-				InsertionMode mode,
-				InsertionMode originalMode,
-				bool framesetOk,
-				bool needToDropLF,
-				bool quirks)
-		{
-			Stack = stack;
-			ListOfActiveFormattingElements = listOfActiveFormattingElements;
-			FormPointer = formPointer;
-			HeadPointer = headPointer;
-			DeepTreeSurrogateParent = deepTreeSurrogateParent;
-			Mode = mode;
-			OriginalMode = originalMode;
-			IsFramesetOk = framesetOk;
-			IsNeedToDropLF = needToDropLF;
-			IsQuirks = quirks;
-		}
-	}
+        internal StateSnapshot(StackNode<T>[] stack,
+                StackNode<T>[] listOfActiveFormattingElements,
+                T formPointer,
+                T headPointer,
+                T deepTreeSurrogateParent,
+                InsertionMode mode,
+                InsertionMode originalMode,
+                bool framesetOk,
+                bool needToDropLF,
+                bool quirks)
+        {
+            Stack = stack;
+            ListOfActiveFormattingElements = listOfActiveFormattingElements;
+            FormPointer = formPointer;
+            HeadPointer = headPointer;
+            DeepTreeSurrogateParent = deepTreeSurrogateParent;
+            Mode = mode;
+            OriginalMode = originalMode;
+            IsFramesetOk = framesetOk;
+            IsNeedToDropLF = needToDropLF;
+            IsQuirks = quirks;
+        }
+    }
 
 }

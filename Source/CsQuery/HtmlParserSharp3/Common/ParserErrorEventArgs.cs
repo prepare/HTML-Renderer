@@ -26,15 +26,15 @@ using System;
 
 namespace HtmlParserSharp.Common
 {
-	public class ParserErrorEventArgs : EventArgs
-	{
-		public string Message { get; private set; }
-		public bool IsWarning { get; private set; }
+    public class ParserErrorEventArgs : EventArgs
+    {
+        public string Message { get; private set; }
+        public bool IsWarning { get; private set; }
 
-		public ParserErrorEventArgs(string message, bool isWarning)
-		{
-			Message = message;
-			IsWarning = isWarning;
-		}
-	}
+        public ParserErrorEventArgs(string message, bool isWarning)
+        {
+            Message = message;
+            IsWarning = isWarning;
+        }
+    }
 }

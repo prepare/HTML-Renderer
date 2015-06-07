@@ -26,15 +26,15 @@ using System;
 
 namespace HtmlParserSharp.Common
 {
-	// This file contains the attributes that correspond to the annotations
-	// @NsUri, @Prefix and @Local in the Java code. Probably we can safely remove these.
+    // This file contains the attributes that correspond to the annotations
+    // @NsUri, @Prefix and @Local in the Java code. Probably we can safely remove these.
 
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Method)]
-	public class NsUriAttribute : Attribute	{ }
+    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Method)]
+    class NsUriAttribute : Attribute { }
 
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Method)]
-	public class PrefixAttribute : Attribute { }
+    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Method)]
+    class PrefixAttribute : Attribute { }
 
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Method)]
-	public class LocalAttribute : Attribute { }
+    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Method)]
+    class LocalAttribute : Attribute { }
 }

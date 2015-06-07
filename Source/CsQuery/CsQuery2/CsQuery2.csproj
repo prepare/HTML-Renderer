@@ -248,9 +248,9 @@
       <Project>{D24E121E-01EF-429F-8CF8-607931FA2E81}</Project>
       <Name>Dom</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HtmlParserSharp2\HtmlParserSharp2.csproj">
-      <Project>{3A69B42C-907B-4361-840F-92554F9C586E}</Project>
-      <Name>HtmlParserSharp2</Name>
+    <ProjectReference Include="..\HtmlParserSharp3\HtmlParserSharp3.csproj">
+      <Project>{B089D53A-AA1A-43DE-830C-B197EB5693B9}</Project>
+      <Name>HtmlParserSharp3</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

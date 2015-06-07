@@ -29,92 +29,92 @@ using HtmlParserSharp.Common;
 
 namespace HtmlParserSharp.Core
 {
-	/// <summary>
-	/// Class for C++ portability.
-	/// TODO: Remove this
-	/// </summary>
-	public sealed class Portability
-	{
-		// Allocating methods
+    /// <summary>
+    /// Class for C++ portability.
+    /// TODO: Remove this
+    /// </summary>
+    sealed class Portability
+    {
+        // Allocating methods
 
-		/// <summary>
-		/// Allocates a new local name object. In C++, the refcount must be set up in such a way that
-		/// calling <code>releaseLocal</code> on the return value balances the refcount set by this method.
-		/// </summary>
-		[Local]
-		public static String NewLocalNameFromBuffer(char[] buf, int offset, int length)
-		{
-			return string.Intern(new String(buf, offset, length));
-		}
+        /// <summary>
+        /// Allocates a new local name object. In C++, the refcount must be set up in such a way that
+        /// calling <code>releaseLocal</code> on the return value balances the refcount set by this method.
+        /// </summary>
+        [Local]
+        public static String NewLocalNameFromBuffer(char[] buf, int offset, int length)
+        {
+            return string.Intern(new String(buf, offset, length));
+        }
 
-		// Comparison methods
+        // Comparison methods
 
-		public static bool LocalEqualsBuffer([Local] string local, char[] buf, int offset, int length)
-		{
-			if (local.Length != length)
-			{
-				return false;
-			}
-			for (int i = 0; i < length; i++)
-			{
-				if (local[i] != buf[offset + i])
-				{
-					return false;
-				}
-			}
-			return true;
-		}
+        public static bool LocalEqualsBuffer([Local] string local, char[] buf, int offset, int length)
+        {
+            if (local.Length != length)
+            {
+                return false;
+            }
+            for (int i = 0; i < length; i++)
+            {
+                if (local[i] != buf[offset + i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
-		public static bool LowerCaseLiteralIsPrefixOfIgnoreAsciiCaseString(string lowerCaseLiteral,	string str)
-		{
-			if (str == null)
-			{
-				return false;
-			}
-			if (lowerCaseLiteral.Length > str.Length)
-			{
-				return false;
-			}
-			for (int i = 0; i < lowerCaseLiteral.Length; i++)
-			{
-				char c0 = lowerCaseLiteral[i];
-				char c1 = str[i];
-				if (c1 >= 'A' && c1 <= 'Z')
-				{
-					c1 += (char)0x20;
-				}
-				if (c0 != c1)
-				{
-					return false;
-				}
-			}
-			return true;
-		}
+        public static bool LowerCaseLiteralIsPrefixOfIgnoreAsciiCaseString(string lowerCaseLiteral, string str)
+        {
+            if (str == null)
+            {
+                return false;
+            }
+            if (lowerCaseLiteral.Length > str.Length)
+            {
+                return false;
+            }
+            for (int i = 0; i < lowerCaseLiteral.Length; i++)
+            {
+                char c0 = lowerCaseLiteral[i];
+                char c1 = str[i];
+                if (c1 >= 'A' && c1 <= 'Z')
+                {
+                    c1 += (char)0x20;
+                }
+                if (c0 != c1)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
-		public static bool LowerCaseLiteralEqualsIgnoreAsciiCaseString(string lowerCaseLiteral, string str)
-		{
-			if (str == null)
-			{
-				return false;
-			}
-			if (lowerCaseLiteral.Length != str.Length)
-			{
-				return false;
-			}
-			for (int i = 0; i < lowerCaseLiteral.Length; i++)
-			{
-				char c0 = lowerCaseLiteral[i];
-				char c1 = str[i];
-				if (c1 >= 'A' && c1 <= 'Z')
-				{
-					c1 += (char)0x20;
-				}
-				if (c0 != c1)
-				{
-					return false;
-				}
-			}
-			return true;
-		}
-	}
+        public static bool LowerCaseLiteralEqualsIgnoreAsciiCaseString(string lowerCaseLiteral, string str)
+        {
+            if (str == null)
+            {
+                return false;
+            }
+            if (lowerCaseLiteral.Length != str.Length)
+            {
+                return false;
+            }
+            for (int i = 0; i < lowerCaseLiteral.Length; i++)
+            {
+                char c0 = lowerCaseLiteral[i];
+                char c1 = str[i];
+                if (c1 >= 'A' && c1 <= 'Z')
+                {
+                    c1 += (char)0x20;
+                }
+                if (c0 != c1)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
 }

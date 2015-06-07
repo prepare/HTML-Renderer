@@ -12,9 +12,10 @@
 
 namespace HtmlParserSharp.Core
 {
-	public sealed class NamedCharacters {
+    sealed class NamedCharacters
+    {
 
-	internal static readonly string[] NAMES = { "lig", "lig;",
+        internal static readonly string[] NAMES = { "lig", "lig;",
 			"P", "P;", "cute", "cute;", "reve;", "irc", "irc;", "y;", "r;",
 			"rave", "rave;", "pha;", "acr;", "d;", "gon;", "pf;",
 			"plyFunction;", "ing", "ing;", "cr;", "sign;", "ilde", "ilde;",
@@ -353,7 +354,7 @@ namespace HtmlParserSharp.Core
 			"ml", "ml;", "cute;", "aron;", "y;", "ot;", "etrf;", "ta;", "r;",
 			"cy;", "grarr;", "pf;", "cr;", "j;", "nj;", };
 
-	internal static readonly char[][] VALUES = new char[][] {new char[] { '\u00c6' }, new char[] { '\u00c6' },
+        internal static readonly char[][] VALUES = new char[][] {new char[] { '\u00c6' }, new char[] { '\u00c6' },
 			new char[] { '\u0026' }, new char[] { '\u0026' }, new char[] { '\u00c1' }, new char[] { '\u00c1' },
 			new char[] { '\u0102' }, new char[] { '\u00c2' }, new char[] { '\u00c2' }, new char[] { '\u0410' },
 			new char[] { '\ud835', '\udd04' }, new char[] { '\u00c0' }, new char[] { '\u00c0' }, new char[] { '\u0391' },
@@ -928,7 +929,7 @@ namespace HtmlParserSharp.Core
 			new char[] { '\u21dd' }, new char[] { '\ud835', '\udd6b' }, new char[] { '\ud835', '\udccf' },
 			new char[] { '\u200d' }, new char[] { '\u200c' }, };
 
-	internal static readonly char[][] WINDOWS_1252 = { new char[] { '\u20AC' }, new char[] { '\u0081' },
+        internal static readonly char[][] WINDOWS_1252 = { new char[] { '\u20AC' }, new char[] { '\u0081' },
 			new char[] { '\u201A' }, new char[] { '\u0192' }, new char[] { '\u201E' }, new char[] { '\u2026' },
 			new char[] { '\u2020' }, new char[] { '\u2021' }, new char[] { '\u02C6' }, new char[] { '\u2030' },
 			new char[] { '\u0160' }, new char[] { '\u2039' }, new char[] { '\u0152' }, new char[] { '\u008D' },
@@ -938,6 +939,6 @@ namespace HtmlParserSharp.Core
 			new char[] { '\u0161' }, new char[] { '\u203A' }, new char[] { '\u0153' }, new char[] { '\u009D' },
 			new char[] { '\u017E' }, new char[] { '\u0178' } };
 
-}
+    }
 
 }
