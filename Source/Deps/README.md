@@ -15,7 +15,11 @@ _pic 1: auto gen source from PixelFarm project_
 _pic 2: detail_
 
 
-You can build the PixelFarm by your own. (from https://github.com/PaintLab/PixelFarm/tree/901c73938094621381592d5416f2fb87b70563fd)
+
+You can build the PixelFarm by your own. 
+
+
+(from https://github.com/PaintLab/PixelFarm/commit/718fa24bc6cf575560ccf68b7e34c768dde7c007)
 
 
 or build from src snap shot at https://github.com/prepare/kneadium_release_tmp

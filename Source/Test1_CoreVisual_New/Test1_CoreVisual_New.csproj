@@ -31,10 +31,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -44,9 +45,6 @@
   <ItemGroup>
     <Compile Include="..\deps\pixelfarm\win32utils\MyWin32.cs">
       <Link>win32utils\MyWin32.cs</Link>
-    </Compile>
-    <Compile Include="..\deps\pixelfarm\win32utils\NativeTextWin32.cs">
-      <Link>win32utils\NativeTextWin32.cs</Link>
     </Compile>
     <Compile Include="..\deps\pixelfarm\win32utils\NativeWin32MemoryDc.cs">
       <Link>win32utils\NativeWin32MemoryDc.cs</Link>

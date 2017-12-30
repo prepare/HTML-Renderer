@@ -3,6 +3,8 @@
 using System;
 using PixelFarm.Drawing;
 using LayoutFarm.InternalUI;
+using LayoutFarm.CustomWidgets;
+using LayoutFarm.UI;
 namespace LayoutFarm.HtmlBoxes
 {
     class CssScrollView : CssBox
@@ -65,11 +67,11 @@ namespace LayoutFarm.HtmlBoxes
                 vscbar.MaxValue = innerBox.VisualHeight;
                 vscbar.SmallChange = 20;
                 //add relation between viewpanel and scroll bar 
-                vscRelation = new ScrollingRelation(vscbar, scrollView);
+                vscRelation = new ScrollingRelation(vscbar.SliderBox, scrollView);
                 //---------------------- 
                 var scBarWrapCssBox = LayoutFarm.Composers.CustomCssBoxGenerator.CreateWrapper(
                            this.vscbar,
-                           this.vscbar.GetPrimaryRenderElement((RootGraphic)this.RootGfx),
+                           this.vscbar.GetPrimaryRenderElement((RootGraphic)this.GetInternalRootGfx()),
                            CssBox.UnsafeGetBoxSpec(this), false);
                 scBarWrapCssBox.SetLocation(newW, 0);
                 this.AppendToAbsoluteLayer(scBarWrapCssBox);
@@ -83,12 +85,12 @@ namespace LayoutFarm.HtmlBoxes
                 hscbar.MaxValue = innerBox.VisualHeight;
                 hscbar.SmallChange = 20;
                 //add relation between viewpanel and scroll bar 
-                hscRelation = new ScrollingRelation(hscbar, scrollView);
+                hscRelation = new ScrollingRelation(hscbar.SliderBox, scrollView);
                 //---------------------- 
-                var renderE = this.hscbar.GetPrimaryRenderElement((RootGraphic)this.RootGfx);
+                var renderE = this.hscbar.GetPrimaryRenderElement((RootGraphic)this.GetInternalRootGfx());
                 var scBarWrapCssBox = LayoutFarm.Composers.CustomCssBoxGenerator.CreateWrapper(
                          this.hscbar,
-                         this.hscbar.GetPrimaryRenderElement((RootGraphic)this.RootGfx),
+                         this.hscbar.GetPrimaryRenderElement((RootGraphic)this.GetInternalRootGfx()),
                          CssBox.UnsafeGetBoxSpec(this), false);
                 scBarWrapCssBox.SetLocation(0, newH);
                 this.AppendToAbsoluteLayer(scBarWrapCssBox);
